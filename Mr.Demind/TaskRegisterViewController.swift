@@ -31,6 +31,7 @@ class TaskRegisterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         classTitleTextField.delegate = self
+        initRegistrationField()
     }
     
     @IBAction func cancelButton(_ sender: Any) {
