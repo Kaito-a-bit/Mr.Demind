@@ -9,6 +9,7 @@ import Foundation
 
 // enumeration of the day of the week
 enum DayOfTheWeek: String, CaseIterable {
+    case None = "-"
     case Monday = "月"
     case Tuesday = "火"
     case Wednesday = "水"

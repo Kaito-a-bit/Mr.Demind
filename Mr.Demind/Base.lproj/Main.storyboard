@@ -35,22 +35,22 @@
                                     <action selector="registerButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PRj-bi-HFD"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="849-b2-xSy">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="849-b2-xSy">
                                 <rect key="frame" x="0.0" y="92" width="414" height="625"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ClassTableViewCell" id="VK7-1S-tWE" customClass="ClassTableViewCell" customModule="Mr_Demind" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="105.5"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="89"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VK7-1S-tWE" id="IPK-MJ-iGN">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="105.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="89"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MUf-Sk-nML">
-                                                    <rect key="frame" x="12" y="6" width="390" height="93.5"/>
+                                                    <rect key="frame" x="12" y="6" width="390" height="77"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="社会科学のためのAI基礎論" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lgd-qJ-ogN">
-                                                            <rect key="frame" x="16" y="12" width="362" height="40"/>
+                                                            <rect key="frame" x="16" y="6" width="362" height="40"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="40" id="SFz-No-Xvp"/>
                                                             </constraints>
@@ -58,24 +58,24 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="34F-zc-ieW">
-                                                            <rect key="frame" x="16" y="64" width="358" height="17.5"/>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="34F-zc-ieW">
+                                                            <rect key="frame" x="16" y="52" width="234" height="17"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="公開: 月曜日" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="du5-Ed-RPw">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="79.5" height="17.5"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="公開: 月" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="du5-Ed-RPw">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="51" height="17"/>
+                                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="視聴期限: 月曜日" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b0W-Nh-7Xc">
-                                                                    <rect key="frame" x="118" y="0.0" width="108" height="17.5"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="視聴期限: 月" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b0W-Nh-7Xc">
+                                                                    <rect key="frame" x="63" y="0.0" width="79.5" height="17"/>
+                                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="課題期限: 金曜" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Al-dd-fb0">
-                                                                    <rect key="frame" x="264.5" y="0.0" width="93.5" height="17.5"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="課題期限: 金" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Al-dd-fb0">
+                                                                    <rect key="frame" x="154.5" y="0.0" width="79.5" height="17"/>
+                                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
@@ -84,12 +84,11 @@
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.85183023293202054" green="0.88205787835955529" blue="0.89930996192893398" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <constraints>
-                                                        <constraint firstItem="34F-zc-ieW" firstAttribute="top" secondItem="lgd-qJ-ogN" secondAttribute="bottom" constant="12" id="0M2-dg-LYQ"/>
-                                                        <constraint firstItem="lgd-qJ-ogN" firstAttribute="top" secondItem="MUf-Sk-nML" secondAttribute="top" constant="12" id="1xk-Vm-8Xg"/>
+                                                        <constraint firstItem="34F-zc-ieW" firstAttribute="top" secondItem="lgd-qJ-ogN" secondAttribute="bottom" constant="6" id="0M2-dg-LYQ"/>
+                                                        <constraint firstItem="lgd-qJ-ogN" firstAttribute="top" secondItem="MUf-Sk-nML" secondAttribute="top" constant="6" id="1xk-Vm-8Xg"/>
                                                         <constraint firstAttribute="trailing" secondItem="lgd-qJ-ogN" secondAttribute="trailing" constant="12" id="6zs-dw-TKk"/>
-                                                        <constraint firstAttribute="bottom" secondItem="34F-zc-ieW" secondAttribute="bottom" constant="12" id="PLt-UJ-oQd"/>
+                                                        <constraint firstAttribute="bottom" secondItem="34F-zc-ieW" secondAttribute="bottom" constant="8" id="PLt-UJ-oQd"/>
                                                         <constraint firstItem="lgd-qJ-ogN" firstAttribute="leading" secondItem="MUf-Sk-nML" secondAttribute="leading" constant="16" id="tkO-cL-a7j"/>
-                                                        <constraint firstAttribute="trailing" secondItem="34F-zc-ieW" secondAttribute="trailing" constant="16" id="xdy-mr-F5S"/>
                                                         <constraint firstItem="34F-zc-ieW" firstAttribute="leading" secondItem="MUf-Sk-nML" secondAttribute="leading" constant="16" id="y7U-PD-wje"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>

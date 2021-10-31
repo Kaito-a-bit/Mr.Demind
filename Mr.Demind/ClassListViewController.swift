@@ -16,7 +16,7 @@ class ClassListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        self.title = "オンデマンド科目"
     }
     
     @IBAction func registerButton(_ sender: Any) {

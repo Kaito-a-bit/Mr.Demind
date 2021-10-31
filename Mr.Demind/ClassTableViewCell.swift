@@ -16,9 +16,9 @@ class ClassTableViewCell: UITableViewCell {
     
     func configure(from model: registeredItems) {
         classTitle.text = model.classTitle
-        pubDateLabel.text = model.published_Date.rawValue
-        viewDateLabel.text = model.viewing_Deadline.rawValue
-        assignDateLabel.text = model.assignment_Deadline.rawValue
+        pubDateLabel.text = "公開日: \(model.published_Date.rawValue)"
+        viewDateLabel.text = "視聴期限: \(model.viewing_Deadline.rawValue)"
+        assignDateLabel.text = "課題期限: \(model.assignment_Deadline.rawValue)"
     }
     
 }
