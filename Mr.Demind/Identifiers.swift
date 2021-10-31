@@ -11,4 +11,5 @@ class Identifiers {
     // format: "idFor--"
     static var idForClassTableViewCell = "ClassTableViewCell"
     static var idForTaskRegisterVC = "TaskRegisterVC"
+    static var keyForItemsForClassTableView = "keyForItemsForClassTableView"
 }
