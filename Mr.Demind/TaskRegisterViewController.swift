@@ -86,7 +86,6 @@ class TaskRegisterViewController: UIViewController {
     }
 }
 
-
 extension TaskRegisterViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)

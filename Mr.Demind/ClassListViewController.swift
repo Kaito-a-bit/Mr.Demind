@@ -31,11 +31,13 @@ class ClassListViewController: UIViewController {
 
 extension ClassListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return ClassListViewController.itemsForClassTableView.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = classTableView.dequeueReusableCell(withIdentifier: Identifiers.idForClassTableViewCell, for: indexPath)
+        let cell = classTableView.dequeueReusableCell(withIdentifier: Identifiers.idForClassTableViewCell, for: indexPath) as! ClassTableViewCell
+        let item = ClassListViewController.itemsForClassTableView[indexPath.row]
+        cell.configure(from: item)
         return cell
     }
 }
