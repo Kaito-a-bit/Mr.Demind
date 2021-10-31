@@ -31,8 +31,10 @@ class TaskRegisterViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-    //    @IBAction func registerButton(_ sender: Any) {
-    //    }
+        @IBAction func registerButton(_ sender: Any) {
+            taskAddition()
+            self.dismiss(animated: true, completion: nil)
+        }
     
     
     @IBAction func publishedDateButton(_ sender: Any) {
@@ -89,5 +91,15 @@ extension TaskRegisterViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return false
+    }
+}
+
+extension TaskRegisterViewController {
+    override func dismiss(animated flag: Bool, completion: (() -> Void)? = nil) {
+        super.dismiss(animated: flag, completion: completion)
+        guard let presentationController = presentationController else {
+            return
+        }
+        presentationController.delegate?.presentationControllerDidDismiss?(presentationController)
     }
 }

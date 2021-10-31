@@ -24,6 +24,7 @@ class ClassListViewController: UIViewController {
         if let sheet = taskRegisterVC.sheetPresentationController {
             sheet.detents = [.medium()]
         }
+        taskRegisterVC.presentationController?.delegate = self
         self.present(taskRegisterVC, animated: true, completion: nil)
     }
 }
@@ -37,7 +38,12 @@ extension ClassListViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = classTableView.dequeueReusableCell(withIdentifier: Identifiers.idForClassTableViewCell, for: indexPath)
         return cell
     }
-    
-    
+}
+
+extension ClassListViewController: UIAdaptivePresentationControllerDelegate {
+    func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
+        print(ClassListViewController.itemsForClassTableView)
+        self.classTableView.reloadData()
+    }
 }
 
