@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19528" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="F1C-2g-D97">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -36,22 +35,22 @@
                                     <action selector="registerButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PRj-bi-HFD"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="849-b2-xSy">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="849-b2-xSy">
                                 <rect key="frame" x="0.0" y="92" width="414" height="625"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ClassTableViewCell" id="VK7-1S-tWE">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="105.5"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ClassTableViewCell" id="VK7-1S-tWE" customClass="ClassTableViewCell" customModule="Mr_Demind" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="89"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VK7-1S-tWE" id="IPK-MJ-iGN">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="105.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="89"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MUf-Sk-nML">
-                                                    <rect key="frame" x="12" y="6" width="390" height="93.5"/>
+                                                    <rect key="frame" x="12" y="6" width="390" height="77"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="社会科学のためのAI基礎論" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lgd-qJ-ogN">
-                                                            <rect key="frame" x="16" y="12" width="362" height="40"/>
+                                                            <rect key="frame" x="16" y="6" width="362" height="40"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="40" id="SFz-No-Xvp"/>
                                                             </constraints>
@@ -59,24 +58,24 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="34F-zc-ieW">
-                                                            <rect key="frame" x="16" y="64" width="358" height="17.5"/>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="34F-zc-ieW">
+                                                            <rect key="frame" x="16" y="52" width="234" height="17"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="公開: 月曜日" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="du5-Ed-RPw">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="79.5" height="17.5"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="公開: 月" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="du5-Ed-RPw">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="51" height="17"/>
+                                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="視聴期限: 月曜日" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b0W-Nh-7Xc">
-                                                                    <rect key="frame" x="118" y="0.0" width="108" height="17.5"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="視聴期限: 月" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b0W-Nh-7Xc">
+                                                                    <rect key="frame" x="63" y="0.0" width="79.5" height="17"/>
+                                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="課題期限: 金曜" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Al-dd-fb0">
-                                                                    <rect key="frame" x="264.5" y="0.0" width="93.5" height="17.5"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="課題期限: 金" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Al-dd-fb0">
+                                                                    <rect key="frame" x="154.5" y="0.0" width="79.5" height="17"/>
+                                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
@@ -85,12 +84,11 @@
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.85183023293202054" green="0.88205787835955529" blue="0.89930996192893398" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <constraints>
-                                                        <constraint firstItem="34F-zc-ieW" firstAttribute="top" secondItem="lgd-qJ-ogN" secondAttribute="bottom" constant="12" id="0M2-dg-LYQ"/>
-                                                        <constraint firstItem="lgd-qJ-ogN" firstAttribute="top" secondItem="MUf-Sk-nML" secondAttribute="top" constant="12" id="1xk-Vm-8Xg"/>
+                                                        <constraint firstItem="34F-zc-ieW" firstAttribute="top" secondItem="lgd-qJ-ogN" secondAttribute="bottom" constant="6" id="0M2-dg-LYQ"/>
+                                                        <constraint firstItem="lgd-qJ-ogN" firstAttribute="top" secondItem="MUf-Sk-nML" secondAttribute="top" constant="6" id="1xk-Vm-8Xg"/>
                                                         <constraint firstAttribute="trailing" secondItem="lgd-qJ-ogN" secondAttribute="trailing" constant="12" id="6zs-dw-TKk"/>
-                                                        <constraint firstAttribute="bottom" secondItem="34F-zc-ieW" secondAttribute="bottom" constant="12" id="PLt-UJ-oQd"/>
+                                                        <constraint firstAttribute="bottom" secondItem="34F-zc-ieW" secondAttribute="bottom" constant="8" id="PLt-UJ-oQd"/>
                                                         <constraint firstItem="lgd-qJ-ogN" firstAttribute="leading" secondItem="MUf-Sk-nML" secondAttribute="leading" constant="16" id="tkO-cL-a7j"/>
-                                                        <constraint firstAttribute="trailing" secondItem="34F-zc-ieW" secondAttribute="trailing" constant="16" id="xdy-mr-F5S"/>
                                                         <constraint firstItem="34F-zc-ieW" firstAttribute="leading" secondItem="MUf-Sk-nML" secondAttribute="leading" constant="16" id="y7U-PD-wje"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
@@ -107,6 +105,12 @@
                                                 <constraint firstAttribute="bottom" secondItem="MUf-Sk-nML" secondAttribute="bottom" constant="6" id="rgq-UQ-13K"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="assignDateLabel" destination="0Al-dd-fb0" id="q8R-8A-Wnq"/>
+                                            <outlet property="classTitle" destination="lgd-qJ-ogN" id="879-Zv-ceW"/>
+                                            <outlet property="pubDateLabel" destination="du5-Ed-RPw" id="jWH-QD-KPg"/>
+                                            <outlet property="viewDateLabel" destination="b0W-Nh-7Xc" id="Y4B-fd-IkU"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -158,11 +162,11 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="S6G-lX-mUs">
                                         <rect key="frame" x="12" y="72" width="366" height="36"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZVA-gU-YWc">
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZVA-gU-YWc">
                                                 <rect key="frame" x="0.0" y="0.0" width="116.5" height="36"/>
                                                 <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="公開:月曜日" titleAlignment="center">
+                                                <buttonConfiguration key="configuration" style="plain" title="公開日: -" titleAlignment="center">
                                                     <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="12"/>
                                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </buttonConfiguration>
@@ -171,12 +175,15 @@
                                                         <integer key="value" value="5"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="publishedDateButton:" destination="1Jb-UA-zLB" eventType="touchUpInside" id="pIe-ge-Rgp"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MZ4-bn-slL">
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MZ4-bn-slL">
                                                 <rect key="frame" x="124.5" y="0.0" width="117" height="36"/>
                                                 <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="視聴期限:水曜日" titleAlignment="center">
+                                                <buttonConfiguration key="configuration" style="plain" title="視聴期限: -" titleAlignment="center">
                                                     <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="12"/>
                                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </buttonConfiguration>
@@ -185,12 +192,15 @@
                                                         <integer key="value" value="5"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="viewingDeadlineButton:" destination="1Jb-UA-zLB" eventType="touchUpInside" id="RA8-K5-3FQ"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mwV-ZH-SYq">
+                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mwV-ZH-SYq">
                                                 <rect key="frame" x="249.5" y="0.0" width="116.5" height="36"/>
                                                 <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="課題期限:なし" titleAlignment="center">
+                                                <buttonConfiguration key="configuration" style="plain" title="課題期限: -" titleAlignment="center">
                                                     <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="12"/>
                                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </buttonConfiguration>
@@ -199,6 +209,9 @@
                                                         <integer key="value" value="5"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="assignmentDeadlineButton:" destination="1Jb-UA-zLB" eventType="touchUpInside" id="12M-dI-aQL"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -225,7 +238,6 @@
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Bo5-Gi-9np">
                                         <rect key="frame" x="12" y="168" width="366" height="530"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
                                         <color key="textColor" systemColor="labelColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -268,6 +280,9 @@
                                         <state key="normal" title="Cancel">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="cancelButton:" destination="1Jb-UA-zLB" eventType="touchUpInside" id="xbV-QX-1ln"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SgJ-Qu-GJQ">
                                         <rect key="frame" x="198" y="0.0" width="192" height="48"/>
@@ -276,6 +291,9 @@
                                         <state key="normal" title="Resister">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="registerButton:" destination="1Jb-UA-zLB" eventType="touchUpInside" id="5oZ-ju-TfA"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -307,7 +325,7 @@
                         <outlet property="classTitleTextField" destination="szB-Di-7UR" id="Mc8-nW-GaU"/>
                         <outlet property="descriptionTextView" destination="Bo5-Gi-9np" id="uDJ-4n-ZMB"/>
                         <outlet property="notificationAdditionButton" destination="vh6-ZS-5Pn" id="trR-Nd-unI"/>
-                        <outlet property="publishedDateButton" destination="MZ4-bn-slL" id="2nG-FG-64f"/>
+                        <outlet property="publishedDateButton" destination="ZVA-gU-YWc" id="gSN-zu-IFR"/>
                         <outlet property="viewingDeadlineButton" destination="MZ4-bn-slL" id="ylB-SM-MOs"/>
                     </connections>
                 </viewController>
