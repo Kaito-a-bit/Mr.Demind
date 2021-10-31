@@ -8,7 +8,7 @@
 import UIKit
 
 class TaskRegisterViewController: UIViewController {
-
+    
     @IBOutlet weak var classTitleTextField: UITextField!
     @IBOutlet weak var publishedDateButton: UIButton!
     @IBOutlet weak var viewingDeadlineButton: UIButton!
@@ -16,16 +16,53 @@ class TaskRegisterViewController: UIViewController {
     @IBOutlet weak var notificationAdditionButton: UIButton!
     @IBOutlet weak var descriptionTextView: UITextView!
     
-  
+    var stateForPublishedDate: DayOfTheWeek?
+    var stateForViewingDeadline: DayOfTheWeek?
+    var stateForAssignmentDeadline: DayOfTheWeek?
+    var indexForPD = 0
+    var indexForVD = 0
+    var indexForAD = 0
+    
+    let attributes: [NSAttributedString.Key: Any] = [
+        .foregroundColor: UIColor.black,
+        .font: UIFont.systemFont(ofSize: 12, weight: .medium)
+    ]
     @IBAction func cancelButton(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
     
-//    @IBAction func registerButton(_ sender: Any) {
-//    }
-    var stateForPublishedDate: DayOfTheWeek?
-    var stateForViewingDeadline: DayOfTheWeek?
-    var stateForAssignmentDeadline: DayOfTheWeek?
+    //    @IBAction func registerButton(_ sender: Any) {
+    //    }
+    
+    
+    @IBAction func publishedDateButton(_ sender: Any) {
+        stateForPublishedDate = DayOfTheWeek.allCases[indexForPD]
+        if let stateForPublishedDate = stateForPublishedDate {
+            publishedDateButton.setAttributedTitle(NSAttributedString(string: "公開日:\(stateForPublishedDate.rawValue)", attributes: attributes), for: .normal)
+        }
+        indexForPD += 1
+        indexForPD = indexForPD > 6 ? 0 : indexForPD
+    }
+    
+    
+    @IBAction func viewingDeadlineButton(_ sender: Any) {
+        stateForViewingDeadline = DayOfTheWeek.allCases[indexForVD]
+        if let stateForViewingDeadline = stateForViewingDeadline {
+            viewingDeadlineButton.setAttributedTitle(NSAttributedString(string: "視聴期限:\(stateForViewingDeadline.rawValue)", attributes: attributes), for: .normal)
+        }
+        indexForVD += 1
+        indexForVD = indexForVD > 6 ? 0 : indexForVD
+    }
+    
+    @IBAction func assignmentDeadlineButton(_ sender: Any) {
+        stateForAssignmentDeadline = DayOfTheWeek.allCases[indexForAD]
+        if let stateForAssignmentDeadline = stateForAssignmentDeadline {
+            assignmentDeadlineButton.setAttributedTitle(NSAttributedString(string: "課題期限:\(stateForAssignmentDeadline.rawValue)", attributes: attributes), for: .normal)
+        }
+        indexForAD += 1
+        indexForAD = indexForAD > 6 ? 0 :  indexForAD
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

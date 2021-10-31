@@ -8,14 +8,14 @@
 import Foundation
 
 // enumeration of the day of the week
-enum DayOfTheWeek {
-    case Monday
-    case Tuesday
-    case Wednesday
-    case Thursday
-    case Friday
-    case Saturday
-    case Sunday
+enum DayOfTheWeek: String, CaseIterable {
+    case Monday = "月"
+    case Tuesday = "火"
+    case Wednesday = "水"
+    case Thursday = "木"
+    case Friday = "金"
+    case Saturday = "土"
+    case Sunday = "日"
 }
 
 // struct for task registration.
