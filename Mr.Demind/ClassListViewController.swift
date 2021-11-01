@@ -33,6 +33,12 @@ class ClassListViewController: UIViewController {
         taskRegisterVC.presentationController?.delegate = self
         self.present(taskRegisterVC, animated: true, completion: nil)
     }
+    
+    //func to update the database
+    func updateDataBase() {
+        ClassListViewController.savedItemsForClassTableView = ClassListViewController.itemsForClassTableView
+        userDataBase.saveItemsForClassTableview(values: ClassListViewController.itemsForClassTableView)
+    }
 }
 
 extension ClassListViewController: UITableViewDelegate, UITableViewDataSource {
@@ -46,14 +52,36 @@ extension ClassListViewController: UITableViewDelegate, UITableViewDataSource {
         cell.configure(from: item)
         return cell
     }
+    
+    //enable slide from the right side.
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .normal, title: "削除") { action, view, completionHandler in
+            ClassListViewController.itemsForClassTableView.remove(at: indexPath.row)
+            self.classTableView.deleteRows(at: [indexPath], with: .automatic)
+            self.updateDataBase()
+            completionHandler(true)
+        }
+        let action = UISwipeActionsConfiguration(actions: [deleteAction])
+        action.performsFirstActionWithFullSwipe = false
+        return action
+    }
+    
+    //enable slide from the left side.
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let editAction = UIContextualAction(style: .normal, title: "編集") { action, view, completionHandler in
+          print("編集ボタンが押されたよ")
+            completionHandler(true)
+        }
+        let action = UISwipeActionsConfiguration(actions: [editAction])
+        action.performsFirstActionWithFullSwipe = false
+        return action
+    }
 }
 
 extension ClassListViewController: UIAdaptivePresentationControllerDelegate {
     func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
         print(ClassListViewController.itemsForClassTableView)
-        //データベース保存
-        ClassListViewController.savedItemsForClassTableView = ClassListViewController.itemsForClassTableView
-        userDataBase.saveItemsForClassTableview(values: ClassListViewController.itemsForClassTableView)
+        updateDataBase()
         self.classTableView.reloadData()
     }
 }
