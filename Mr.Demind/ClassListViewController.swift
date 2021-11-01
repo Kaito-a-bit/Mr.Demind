@@ -60,7 +60,9 @@ extension ClassListViewController: UITableViewDelegate, UITableViewDataSource {
             self.updateDataBase()
             completionHandler(true)
         }
-        return UISwipeActionsConfiguration(actions: [deleteAction])
+        let action = UISwipeActionsConfiguration(actions: [deleteAction])
+        action.performsFirstActionWithFullSwipe = false
+        return action
     }
 }
 
