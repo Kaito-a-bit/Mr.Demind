@@ -53,6 +53,7 @@ extension ClassListViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    //enable slide from the right side.
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .normal, title: "削除") { action, view, completionHandler in
             ClassListViewController.itemsForClassTableView.remove(at: indexPath.row)
@@ -65,6 +66,7 @@ extension ClassListViewController: UITableViewDelegate, UITableViewDataSource {
         return action
     }
     
+    //enable slide from the left side.
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let editAction = UIContextualAction(style: .normal, title: "編集") { action, view, completionHandler in
           print("編集ボタンが押されたよ")
