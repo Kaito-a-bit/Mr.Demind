@@ -31,6 +31,7 @@ class TaskRegisterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         classTitleTextField.delegate = self
+        initRegistrationField()
     }
     
     @IBAction func cancelButton(_ sender: Any) {
@@ -49,7 +50,7 @@ class TaskRegisterViewController: UIViewController {
             publishedDateButton.setAttributedTitle(NSAttributedString(string: "公開日:\(stateForPublishedDate.rawValue)", attributes: attributes), for: .normal)
         }
         indexForPD += 1
-        indexForPD = indexForPD > 7 ? 0 : indexForPD
+        indexForPD = indexForPD == 8 ? 0 : indexForPD
     }
     
     
@@ -59,7 +60,7 @@ class TaskRegisterViewController: UIViewController {
             viewingDeadlineButton.setAttributedTitle(NSAttributedString(string: "視聴期限:\(stateForViewingDeadline.rawValue)", attributes: attributes), for: .normal)
         }
         indexForVD += 1
-        indexForVD = indexForVD > 7 ? 0 : indexForVD
+        indexForVD = indexForVD == 8 ? 0 : indexForVD
     }
     
     @IBAction func assignmentDeadlineButton(_ sender: Any) {
@@ -68,7 +69,7 @@ class TaskRegisterViewController: UIViewController {
             assignmentDeadlineButton.setAttributedTitle(NSAttributedString(string: "課題期限:\(stateForAssignmentDeadline.rawValue)", attributes: attributes), for: .normal)
         }
         indexForAD += 1
-        indexForAD = indexForAD > 7 ? 0 :  indexForAD
+        indexForAD = indexForAD == 8 ? 0 :  indexForAD
     }
     
     func taskAddition() {
