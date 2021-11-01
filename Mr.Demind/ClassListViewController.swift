@@ -64,6 +64,16 @@ extension ClassListViewController: UITableViewDelegate, UITableViewDataSource {
         action.performsFirstActionWithFullSwipe = false
         return action
     }
+    
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let editAction = UIContextualAction(style: .normal, title: "編集") { action, view, completionHandler in
+          print("編集ボタンが押されたよ")
+            completionHandler(true)
+        }
+        let action = UISwipeActionsConfiguration(actions: [editAction])
+        action.performsFirstActionWithFullSwipe = false
+        return action
+    }
 }
 
 extension ClassListViewController: UIAdaptivePresentationControllerDelegate {
