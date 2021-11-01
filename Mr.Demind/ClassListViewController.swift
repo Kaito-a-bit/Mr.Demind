@@ -14,10 +14,15 @@ class ClassListViewController: UIViewController {
     let userDataBase = UserDataBase()
     let taskRegisterVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: Identifiers.idForTaskRegisterVC) as! TaskRegisterViewController
     static var itemsForClassTableView: [registeredItems] = []
+    static var savedItemsForClassTableView: [registeredItems]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "オンデマンド科目"
+        if let restoredValues = userDataBase.restoreItemsForClassTableView() {
+            ClassListViewController.itemsForClassTableView = restoredValues
+        }
+        self.classTableView.reloadData()
     }
     
     @IBAction func registerButton(_ sender: Any) {
@@ -46,6 +51,8 @@ extension ClassListViewController: UITableViewDelegate, UITableViewDataSource {
 extension ClassListViewController: UIAdaptivePresentationControllerDelegate {
     func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
         print(ClassListViewController.itemsForClassTableView)
+        //データベース保存
+        ClassListViewController.savedItemsForClassTableView = ClassListViewController.itemsForClassTableView
         userDataBase.saveItemsForClassTableview(values: ClassListViewController.itemsForClassTableView)
         self.classTableView.reloadData()
     }
