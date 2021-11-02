@@ -75,6 +75,7 @@ extension ClassListViewController: UITableViewDelegate, UITableViewDataSource {
         let editAction = UIContextualAction(style: .normal, title: "編集") { action, view, completionHandler in
             TaskRegisterViewController.fromWhere = .edit
             self.transitionToRegister()
+            TaskRegisterViewController.inheritedItem = ClassListViewController.itemsForClassTableView[indexPath.row]
             completionHandler(true)
         }
         let action = UISwipeActionsConfiguration(actions: [editAction])
