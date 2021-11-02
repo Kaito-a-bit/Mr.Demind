@@ -35,15 +35,21 @@ class TaskRegisterViewController: UIViewController {
         case .register:
             initRegistrationField()
         case .edit:
-            print("hello from edit button")
+            if let values = TaskRegisterViewController.inheritedItem {
+                classTitleTextField.text = values.classTitle
+                publishedDateButton.setAttributedTitle(NSAttributedString(string: "公開日:\(DayOfTheWeek.allCases[values.arrForButtons[0]].rawValue)", attributes: attributes), for: .normal)
+                viewingDeadlineButton.setAttributedTitle(NSAttributedString(string: "視聴期限:\(DayOfTheWeek.allCases[values.arrForButtons[1]].rawValue)", attributes: attributes), for: .normal)
+                assignmentDeadlineButton.setAttributedTitle(NSAttributedString(string: "課題期限:\(DayOfTheWeek.allCases[values.arrForButtons[2]].rawValue)", attributes: attributes), for: .normal)
+                descriptionTextView.text = values.description
+            }
         }
     }
     
     @IBAction func cancelButton(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
-    
-    @IBAction func registerButton(_ sender: Any) {
+        
+        @IBAction func registerButton(_ sender: Any) {
         taskAddition()
         self.dismiss(animated: true, completion: nil)
     }
