@@ -26,19 +26,22 @@ class ClassListViewController: UIViewController {
     }
     
     @IBAction func registerButton(_ sender: Any) {
-        taskRegisterVC.modalPresentationStyle = .pageSheet
-        if let sheet = taskRegisterVC.sheetPresentationController {
-            sheet.detents = [.medium()]
-        }
-        taskRegisterVC.presentationController?.delegate = self
-        taskRegisterVC.initRegistrationField()
-        self.present(taskRegisterVC, animated: true, completion: nil)
+        transitionToRegister()
     }
     
     //func to update the database
     func updateDataBase() {
         ClassListViewController.savedItemsForClassTableView = ClassListViewController.itemsForClassTableView
         userDataBase.saveItemsForClassTableview(values: ClassListViewController.itemsForClassTableView)
+    }
+    
+    func transitionToRegister() {
+        taskRegisterVC.modalPresentationStyle = .pageSheet
+        if let sheet = taskRegisterVC.sheetPresentationController {
+            sheet.detents = [.medium()]
+        }
+        taskRegisterVC.presentationController?.delegate = self
+        self.present(taskRegisterVC, animated: true, completion: nil)
     }
 }
 
@@ -70,7 +73,8 @@ extension ClassListViewController: UITableViewDelegate, UITableViewDataSource {
     //enable slide from the left side.
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let editAction = UIContextualAction(style: .normal, title: "編集") { action, view, completionHandler in
-          print("編集ボタンが押されたよ")
+            TaskRegisterViewController.fromWhere = .edit
+            self.transitionToRegister()
             completionHandler(true)
         }
         let action = UISwipeActionsConfiguration(actions: [editAction])
