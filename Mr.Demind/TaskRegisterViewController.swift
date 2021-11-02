@@ -31,9 +31,11 @@ class TaskRegisterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         classTitleTextField.delegate = self
-        initRegistrationField()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        initRegistrationField()
+    }
     @IBAction func cancelButton(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
@@ -112,7 +114,6 @@ extension TaskRegisterViewController: UITextFieldDelegate {
 
 extension TaskRegisterViewController {
     override func dismiss(animated flag: Bool, completion: (() -> Void)? = nil) {
-        initRegistrationField()
         super.dismiss(animated: flag, completion: completion)
         guard let presentationController = presentationController else {
             return
