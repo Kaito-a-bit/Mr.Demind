@@ -22,6 +22,7 @@ class TaskRegisterViewController: UIViewController {
     var indexForPD = 0
     var indexForVD = 0
     var indexForAD = 0
+    var indexForButtons: [Int] = [0, 0, 0]
     
     let attributes: [NSAttributedString.Key: Any] = [
         .foregroundColor: UIColor.black,
