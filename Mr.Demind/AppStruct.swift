@@ -25,3 +25,8 @@ struct registeredItems: Codable {
     var arrForButtons: [Int]
     var description: String
 }
+
+enum ViewsLeftBehind {
+    case register
+    case edit
+}

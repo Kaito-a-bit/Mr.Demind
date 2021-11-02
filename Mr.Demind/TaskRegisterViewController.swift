@@ -17,6 +17,7 @@ class TaskRegisterViewController: UIViewController {
     @IBOutlet weak var descriptionTextView: UITextView!
     
     var indexForButtons: [Int] = [0, 0, 0] //「-」を指定
+    static var fromWhere: ViewsLeftBehind = .register
     
     let attributes: [NSAttributedString.Key: Any] = [
         .foregroundColor: UIColor.black,
@@ -29,8 +30,14 @@ class TaskRegisterViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        initRegistrationField()
+        switch TaskRegisterViewController.fromWhere {
+        case .register:
+            initRegistrationField()
+        case .edit:
+            print("hello from edit button")
+        }
     }
+    
     @IBAction func cancelButton(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }

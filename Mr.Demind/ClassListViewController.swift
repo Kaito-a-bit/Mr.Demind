@@ -31,6 +31,7 @@ class ClassListViewController: UIViewController {
             sheet.detents = [.medium()]
         }
         taskRegisterVC.presentationController?.delegate = self
+        taskRegisterVC.initRegistrationField()
         self.present(taskRegisterVC, animated: true, completion: nil)
     }
     
