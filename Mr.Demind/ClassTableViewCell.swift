@@ -16,9 +16,9 @@ class ClassTableViewCell: UITableViewCell {
     
     func configure(from model: registeredItems) {
         classTitle.text = model.classTitle
-        pubDateLabel.text = "公開日: \(DayOfTheWeek.allCases[model.arrForButtons[0]])"
-        viewDateLabel.text = "視聴期限: \(DayOfTheWeek.allCases[model.arrForButtons[0]])"
-        assignDateLabel.text = "課題期限: \(DayOfTheWeek.allCases[model.arrForButtons[0]])"
+        pubDateLabel.text = "公開日: \(DayOfTheWeek.allCases[model.arrForButtons[0]].rawValue)"
+        viewDateLabel.text = "視聴期限: \(DayOfTheWeek.allCases[model.arrForButtons[0]].rawValue)"
+        assignDateLabel.text = "課題期限: \(DayOfTheWeek.allCases[model.arrForButtons[0]].rawValue)"
     }
     
 }
