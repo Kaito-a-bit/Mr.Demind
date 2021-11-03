@@ -9,6 +9,7 @@ import Foundation
 
 // enumeration of the day of the week
 enum DayOfTheWeek: String, CaseIterable, Codable {
+    case None = "-" //0
     case Monday = "月"
     case Tuesday = "火"
     case Wednesday = "水"
@@ -16,15 +17,16 @@ enum DayOfTheWeek: String, CaseIterable, Codable {
     case Friday = "金"
     case Saturday = "土"
     case Sunday = "日"
-    case None = "-"
 }
 
 // struct for task registration.
 struct registeredItems: Codable {
     var classTitle: String
-    var published_Date: DayOfTheWeek
-    var viewing_Deadline: DayOfTheWeek
-    var assignment_Deadline: DayOfTheWeek
-//    var notification
+    var arrForButtons: [Int]
     var description: String
+}
+
+enum ViewsLeftBehind {
+    case register
+    case edit
 }

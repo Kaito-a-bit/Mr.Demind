@@ -13,6 +13,7 @@ class ClassListViewController: UIViewController {
     
     let userDataBase = UserDataBase()
     let taskRegisterVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: Identifiers.idForTaskRegisterVC) as! TaskRegisterViewController
+    static var indexForEditedItem: Int!
     static var itemsForClassTableView: [registeredItems] = []
     static var savedItemsForClassTableView: [registeredItems]!
     
@@ -26,18 +27,24 @@ class ClassListViewController: UIViewController {
     }
     
     @IBAction func registerButton(_ sender: Any) {
-        taskRegisterVC.modalPresentationStyle = .pageSheet
-        if let sheet = taskRegisterVC.sheetPresentationController {
-            sheet.detents = [.medium()]
-        }
-        taskRegisterVC.presentationController?.delegate = self
-        self.present(taskRegisterVC, animated: true, completion: nil)
+        //登録ボタンからきたことを指定
+        TaskRegisterViewController.fromWhere = .register
+        transitionToRegister()
     }
     
     //func to update the database
     func updateDataBase() {
         ClassListViewController.savedItemsForClassTableView = ClassListViewController.itemsForClassTableView
         userDataBase.saveItemsForClassTableview(values: ClassListViewController.itemsForClassTableView)
+    }
+    
+    func transitionToRegister() {
+        taskRegisterVC.modalPresentationStyle = .pageSheet
+        if let sheet = taskRegisterVC.sheetPresentationController {
+            sheet.detents = [.medium()]
+        }
+        taskRegisterVC.presentationController?.delegate = self
+        self.present(taskRegisterVC, animated: true, completion: nil)
     }
 }
 
@@ -69,7 +76,13 @@ extension ClassListViewController: UITableViewDelegate, UITableViewDataSource {
     //enable slide from the left side.
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let editAction = UIContextualAction(style: .normal, title: "編集") { action, view, completionHandler in
-          print("編集ボタンが押されたよ")
+            //編集ボタンからきたことを指定
+            TaskRegisterViewController.fromWhere = .edit
+            self.transitionToRegister()
+            //値引き継ぎ
+            TaskRegisterViewController.inheritedItem = ClassListViewController.itemsForClassTableView[indexPath.row]
+            //インデックス引き継ぎ
+            ClassListViewController.indexForEditedItem = indexPath.row
             completionHandler(true)
         }
         let action = UISwipeActionsConfiguration(actions: [editAction])
