@@ -49,8 +49,13 @@ class TaskRegisterViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
         
-        @IBAction func registerButton(_ sender: Any) {
-        taskAddition()
+    @IBAction func registerButton(_ sender: Any) {
+        switch TaskRegisterViewController.fromWhere {
+        case .register:
+            taskAddition()
+        case .edit:
+            //ここでClassListViewControllerから取ってきた情報を元の場所に戻したい。
+        }
         self.dismiss(animated: true, completion: nil)
     }
     
