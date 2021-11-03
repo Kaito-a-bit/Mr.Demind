@@ -13,6 +13,7 @@ class ClassListViewController: UIViewController {
     
     let userDataBase = UserDataBase()
     let taskRegisterVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: Identifiers.idForTaskRegisterVC) as! TaskRegisterViewController
+    static var indexForEditedItem: Int!
     static var itemsForClassTableView: [registeredItems] = []
     static var savedItemsForClassTableView: [registeredItems]!
     
@@ -75,7 +76,10 @@ extension ClassListViewController: UITableViewDelegate, UITableViewDataSource {
         let editAction = UIContextualAction(style: .normal, title: "編集") { action, view, completionHandler in
             TaskRegisterViewController.fromWhere = .edit
             self.transitionToRegister()
+            //値引き継ぎ
             TaskRegisterViewController.inheritedItem = ClassListViewController.itemsForClassTableView[indexPath.row]
+            //インデックス引き継ぎ
+            ClassListViewController.indexForEditedItem = indexPath.row
             completionHandler(true)
         }
         let action = UISwipeActionsConfiguration(actions: [editAction])

@@ -53,10 +53,12 @@ class TaskRegisterViewController: UIViewController {
         switch TaskRegisterViewController.fromWhere {
         case .register:
             taskAddition()
+            self.dismiss(animated: true, completion: nil)
         case .edit:
             //ここでClassListViewControllerから取ってきた情報を元の場所に戻したい。
+            taskEditing()
+            self.dismiss(animated: true, completion: nil)
         }
-        self.dismiss(animated: true, completion: nil)
     }
     
     
@@ -85,6 +87,17 @@ class TaskRegisterViewController: UIViewController {
                 registeredItems(classTitle: classTitle,
                                 arrForButtons: indexForButtons,
                                 description: descriptionTextView.text))
+        }
+    }
+    
+    func taskEditing() {
+        if let classTitle = classTitleTextField.text,
+           var item = TaskRegisterViewController.inheritedItem,
+           let inheritedIndex = ClassListViewController.indexForEditedItem {
+            item.classTitle = classTitle
+            item.arrForButtons = indexForButtons
+            item.description = descriptionTextView.text
+            ClassListViewController.itemsForClassTableView[inheritedIndex] = item
         }
     }
     
