@@ -57,21 +57,21 @@ class TaskRegisterViewController: UIViewController {
     
     @IBAction func publishedDateButton(_ sender: Any) {
         indexForButtons[0] += 1
-        publishedDateButton.setAttributedTitle(NSAttributedString(string: "公開日:\(DayOfTheWeek.allCases[indexForButtons[0]].rawValue)", attributes: attributes), for: .normal)
         indexForButtons[0] = indexForButtons[0] == 8 ? 0 : indexForButtons[0]
+        publishedDateButton.setAttributedTitle(NSAttributedString(string: "公開日:\(DayOfTheWeek.allCases[indexForButtons[0]].rawValue)", attributes: attributes), for: .normal)
     }
     
     
     @IBAction func viewingDeadlineButton(_ sender: Any) {
         indexForButtons[1] += 1
-        viewingDeadlineButton.setAttributedTitle(NSAttributedString(string: "視聴期限:\(DayOfTheWeek.allCases[indexForButtons[1]].rawValue)", attributes: attributes), for: .normal)
         indexForButtons[1] = indexForButtons[1] == 8 ? 0 : indexForButtons[1]
+        viewingDeadlineButton.setAttributedTitle(NSAttributedString(string: "視聴期限:\(DayOfTheWeek.allCases[indexForButtons[1]].rawValue)", attributes: attributes), for: .normal)
     }
     
     @IBAction func assignmentDeadlineButton(_ sender: Any) {
         indexForButtons[2] += 1
-        assignmentDeadlineButton.setAttributedTitle(NSAttributedString(string: "課題期限:\(DayOfTheWeek.allCases[indexForButtons[2]].rawValue)", attributes: attributes), for: .normal)
         indexForButtons[2] = indexForButtons[2] == 8 ? 0 :  indexForButtons[2]
+        assignmentDeadlineButton.setAttributedTitle(NSAttributedString(string: "課題期限:\(DayOfTheWeek.allCases[indexForButtons[2]].rawValue)", attributes: attributes), for: .normal)
     }
     
     func taskAddition() {
