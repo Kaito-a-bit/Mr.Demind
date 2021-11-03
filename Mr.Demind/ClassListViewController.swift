@@ -27,6 +27,8 @@ class ClassListViewController: UIViewController {
     }
     
     @IBAction func registerButton(_ sender: Any) {
+        //登録ボタンからきたことを指定
+        TaskRegisterViewController.fromWhere = .register
         transitionToRegister()
     }
     
@@ -74,6 +76,7 @@ extension ClassListViewController: UITableViewDelegate, UITableViewDataSource {
     //enable slide from the left side.
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let editAction = UIContextualAction(style: .normal, title: "編集") { action, view, completionHandler in
+            //編集ボタンからきたことを指定
             TaskRegisterViewController.fromWhere = .edit
             self.transitionToRegister()
             //値引き継ぎ
