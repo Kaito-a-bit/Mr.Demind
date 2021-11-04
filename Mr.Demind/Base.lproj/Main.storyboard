@@ -39,15 +39,15 @@
                                 <rect key="frame" x="0.0" y="92" width="414" height="625"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ClassTableViewCell" rowHeight="126" id="VK7-1S-tWE" customClass="ClassTableViewCell" customModule="Mr_Demind" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="126"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ClassTableViewCell" rowHeight="201" id="VK7-1S-tWE" customClass="ClassTableViewCell" customModule="Mr_Demind" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="201"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VK7-1S-tWE" id="IPK-MJ-iGN">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="126"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="201"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MUf-Sk-nML">
-                                                    <rect key="frame" x="12" y="6" width="390" height="114"/>
+                                                    <rect key="frame" x="12" y="6" width="390" height="189"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="社会科学のためのAI基礎論" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lgd-qJ-ogN">
                                                             <rect key="frame" x="16" y="6" width="362" height="40"/>
@@ -84,12 +84,25 @@
                                                                 <constraint firstAttribute="height" constant="17" id="d2w-L4-5d8"/>
                                                             </constraints>
                                                         </stackView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Xs-9c-Khg">
+                                                            <rect key="frame" x="12" y="81" width="366" height="21"/>
+                                                            <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="21" id="X2L-Ay-pv8"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.85183023293202054" green="0.88205787835955529" blue="0.89930996192893398" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <constraints>
                                                         <constraint firstItem="34F-zc-ieW" firstAttribute="top" secondItem="lgd-qJ-ogN" secondAttribute="bottom" constant="6" id="0M2-dg-LYQ"/>
                                                         <constraint firstItem="lgd-qJ-ogN" firstAttribute="top" secondItem="MUf-Sk-nML" secondAttribute="top" constant="6" id="1xk-Vm-8Xg"/>
                                                         <constraint firstAttribute="trailing" secondItem="lgd-qJ-ogN" secondAttribute="trailing" constant="12" id="6zs-dw-TKk"/>
+                                                        <constraint firstItem="0Xs-9c-Khg" firstAttribute="top" secondItem="34F-zc-ieW" secondAttribute="bottom" constant="12" id="WL4-oo-7U9"/>
+                                                        <constraint firstItem="0Xs-9c-Khg" firstAttribute="leading" secondItem="MUf-Sk-nML" secondAttribute="leading" constant="12" id="gRY-Ew-3yH"/>
+                                                        <constraint firstAttribute="trailing" secondItem="0Xs-9c-Khg" secondAttribute="trailing" constant="12" id="hmv-bk-sO2"/>
                                                         <constraint firstItem="lgd-qJ-ogN" firstAttribute="leading" secondItem="MUf-Sk-nML" secondAttribute="leading" constant="16" id="tkO-cL-a7j"/>
                                                         <constraint firstItem="34F-zc-ieW" firstAttribute="leading" secondItem="MUf-Sk-nML" secondAttribute="leading" constant="16" id="y7U-PD-wje"/>
                                                     </constraints>
