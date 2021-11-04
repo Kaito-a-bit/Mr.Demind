@@ -16,6 +16,7 @@ class ClassListViewController: UIViewController {
     static var indexForEditedItem: Int!
     static var itemsForClassTableView: [registeredItems] = []
     static var savedItemsForClassTableView: [registeredItems]!
+    var tappedCount = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,6 +59,28 @@ extension ClassListViewController: UITableViewDelegate, UITableViewDataSource {
         let item = ClassListViewController.itemsForClassTableView[indexPath.row]
         cell.configure(from: item)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tappedCount += 1
+        self.classTableView.beginUpdates()
+        self.classTableView.endUpdates()
+        tappedCount = tappedCount == 2 ? 0 : tappedCount
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if self.classTableView.indexPathForSelectedRow?.row == indexPath.row {
+            switch tappedCount {
+            case 1:
+                return 160
+            case 2:
+                return 90
+            default:
+                return 90
+            }
+        } else {
+            return 90
+        }
     }
     
     //enable slide from the right side.
