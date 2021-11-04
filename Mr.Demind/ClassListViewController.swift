@@ -16,7 +16,7 @@ class ClassListViewController: UIViewController {
     static var indexForEditedItem: Int!
     static var itemsForClassTableView: [registeredItems] = []
     static var savedItemsForClassTableView: [registeredItems]!
-    var tappedCount = 0
+    var isTappedInitially: Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,20 +62,17 @@ extension ClassListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tappedCount += 1
+        isTappedInitially = !isTappedInitially
         self.classTableView.beginUpdates()
         self.classTableView.endUpdates()
-        tappedCount = tappedCount == 2 ? 0 : tappedCount
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if self.classTableView.indexPathForSelectedRow?.row == indexPath.row {
-            switch tappedCount {
-            case 1:
+            switch isTappedInitially {
+            case false:
                 return 160
-            case 2:
-                return 90
-            default:
+            case true:
                 return 90
             }
         } else {
