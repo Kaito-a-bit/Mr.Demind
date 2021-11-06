@@ -71,7 +71,7 @@ extension ClassListViewController: UITableViewDelegate, UITableViewDataSource {
         if self.classTableView.indexPathForSelectedRow?.row == indexPath.row {
             switch isTappedInitially {
             case false:
-                return 186
+                return 216
             case true:
                 return 90
             }
