@@ -23,7 +23,7 @@ enum DayOfTheWeek: String, CaseIterable, Codable {
 struct registeredItems: Codable {
     var classTitle: String
     var arrForButtons: [Int]
-    var description: String
+    var description: String?
 }
 
 enum ViewsLeftBehind {

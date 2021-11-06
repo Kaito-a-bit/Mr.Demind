@@ -14,6 +14,7 @@ class ClassTableViewCell: UITableViewCell {
     @IBOutlet weak var viewDateLabel: UILabel!
     @IBOutlet weak var assignDateLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var descriptionHeight: NSLayoutConstraint!
     
     func configure(from model: registeredItems) {
         classTitle.text = model.classTitle
@@ -21,6 +22,10 @@ class ClassTableViewCell: UITableViewCell {
         viewDateLabel.text = "視聴期限: \(DayOfTheWeek.allCases[model.arrForButtons[1]].rawValue)"
         assignDateLabel.text = "課題期限: \(DayOfTheWeek.allCases[model.arrForButtons[2]].rawValue)"
         descriptionLabel.text = model.description
+        if let description = model.description {
+            if description.isEmpty {
+                descriptionHeight.constant = 0
+            }
+        }
     }
-    
 }
