@@ -395,7 +395,7 @@
         <!--View Controller-->
         <scene sceneID="jQu-b6-uh9">
             <objects>
-                <viewController storyboardIdentifier="ManageNotificationVC" id="T9X-kS-dz5" sceneMemberID="viewController">
+                <viewController id="T9X-kS-dz5" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9Or-g0-Q4Q">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -448,7 +448,7 @@
         <!--Navigation Controller-->
         <scene sceneID="bxq-O9-xRl">
             <objects>
-                <navigationController storyboardIdentifier="NotificationNVC" automaticallyAdjustsScrollViewInsets="NO" id="FP0-Hs-J42" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="FP0-Hs-J42" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="hPe-4d-mzP">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
