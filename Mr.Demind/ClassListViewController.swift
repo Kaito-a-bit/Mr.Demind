@@ -113,7 +113,6 @@ extension ClassListViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension ClassListViewController: UIAdaptivePresentationControllerDelegate {
     func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
-        print(ClassListViewController.itemsForClassTableView)
         updateDataBase()
         self.classTableView.reloadData()
     }
