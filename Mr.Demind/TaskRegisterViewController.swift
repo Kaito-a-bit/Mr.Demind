@@ -68,6 +68,7 @@ class TaskRegisterViewController: UIViewController {
             taskEditing()
             self.dismiss(animated: true, completion: nil)
         }
+        print(ClassListViewController.itemsForClassTableView)
     }
     
     
@@ -95,7 +96,7 @@ class TaskRegisterViewController: UIViewController {
             ClassListViewController.itemsForClassTableView.append(
                 registeredItems(classTitle: classTitle,
                                 arrForButtons: indexForButtons,
-                                description: descriptionTextView.text))
+                                description: descriptionTextView.text, ToggledDates: AddNotificationVC.toggledItem))
         }
     }
     
