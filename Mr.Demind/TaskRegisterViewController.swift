@@ -49,7 +49,7 @@ class TaskRegisterViewController: UIViewController {
     @IBAction func addNoteButton(_ sender: Any) {
         AddNotificationVC.modalPresentationStyle = .pageSheet
         if let sheet = AddNotificationVC.sheetPresentationController {
-            sheet.detents = [.medium(), .large()]
+            sheet.detents = [.medium()]
         }
         self.present(AddNotificationVC, animated: true, completion: nil)
     }

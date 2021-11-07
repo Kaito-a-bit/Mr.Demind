@@ -402,14 +402,76 @@
                     <view key="view" contentMode="scaleToFill" id="9Or-g0-Q4Q">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="URo-uA-mIN">
+                                <rect key="frame" x="48" y="80" width="318" height="130"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BFb-m8-Kzz">
+                                        <rect key="frame" x="0.0" y="0.0" width="318" height="64"/>
+                                        <subviews>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H7Q-bG-6z2">
+                                                <rect key="frame" x="245" y="16.5" width="51" height="31"/>
+                                            </switch>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="授業公開日に通知する" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jhk-UU-nbm">
+                                                <rect key="frame" x="16" y="22" width="173.5" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="Jhk-UU-nbm" firstAttribute="leading" secondItem="BFb-m8-Kzz" secondAttribute="leading" constant="16" id="03U-R6-Lgx"/>
+                                            <constraint firstItem="Jhk-UU-nbm" firstAttribute="centerY" secondItem="BFb-m8-Kzz" secondAttribute="centerY" id="GEc-Is-dOW"/>
+                                            <constraint firstAttribute="trailing" secondItem="H7Q-bG-6z2" secondAttribute="trailing" constant="24" id="IeT-7p-vwW"/>
+                                            <constraint firstAttribute="height" constant="64" id="Rjb-1g-E49"/>
+                                            <constraint firstItem="H7Q-bG-6z2" firstAttribute="centerY" secondItem="BFb-m8-Kzz" secondAttribute="centerY" id="qnO-p5-MeM"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mvg-T5-ZOF">
+                                        <rect key="frame" x="0.0" y="66" width="318" height="64"/>
+                                        <subviews>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gPH-Eh-pEd">
+                                                <rect key="frame" x="245" y="16.5" width="51" height="31"/>
+                                            </switch>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="視聴期限日に通知する" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lsf-Um-6zQ">
+                                                <rect key="frame" x="16" y="22" width="173.5" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="gPH-Eh-pEd" firstAttribute="centerY" secondItem="Mvg-T5-ZOF" secondAttribute="centerY" id="4HD-dC-TsG"/>
+                                            <constraint firstAttribute="height" constant="64" id="4oL-ph-FJC"/>
+                                            <constraint firstAttribute="trailing" secondItem="gPH-Eh-pEd" secondAttribute="trailing" constant="24" id="Bmh-87-3ka"/>
+                                            <constraint firstItem="lsf-Um-6zQ" firstAttribute="centerY" secondItem="Mvg-T5-ZOF" secondAttribute="centerY" id="Iji-lK-Yen"/>
+                                            <constraint firstItem="lsf-Um-6zQ" firstAttribute="leading" secondItem="Mvg-T5-ZOF" secondAttribute="leading" constant="16" id="m7v-sZ-9pA"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="xv3-7p-9pS"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.80784313730000001" green="0.85490196078431369" blue="0.87450980392156863" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="URo-uA-mIN" firstAttribute="leading" secondItem="xv3-7p-9pS" secondAttribute="leading" constant="48" id="Noi-lr-vQ1"/>
+                            <constraint firstItem="URo-uA-mIN" firstAttribute="top" secondItem="xv3-7p-9pS" secondAttribute="top" constant="36" id="Pca-Z3-RBd"/>
+                            <constraint firstItem="xv3-7p-9pS" firstAttribute="trailing" secondItem="URo-uA-mIN" secondAttribute="trailing" constant="48" id="pmJ-OG-8fa"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="CrL-Mw-463"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YtI-Yy-T7h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3507" y="98"/>
+            <point key="canvasLocation" x="3505.7971014492755" y="97.767857142857139"/>
         </scene>
         <!--Item-->
         <scene sceneID="DJw-Va-hDj">
