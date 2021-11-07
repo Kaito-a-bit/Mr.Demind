@@ -16,6 +16,7 @@ class TaskRegisterViewController: UIViewController {
     @IBOutlet weak var notificationAdditionButton: UIButton!
     @IBOutlet weak var descriptionTextView: UITextView!
     
+    let AddNotificationVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: Identifiers.idForAddNoteVC) as! AddNotificationViewController
     var indexForButtons: [Int] = [0, 0, 0] //「-」を指定
     static var fromWhere: ViewsLeftBehind = .register
     static var inheritedItem: registeredItems!
@@ -43,6 +44,14 @@ class TaskRegisterViewController: UIViewController {
                 descriptionTextView.text = values.description
             }
         }
+    }
+    
+    @IBAction func addNoteButton(_ sender: Any) {
+        AddNotificationVC.modalPresentationStyle = .pageSheet
+        if let sheet = AddNotificationVC.sheetPresentationController {
+            sheet.detents = [.medium(), .large()]
+        }
+        self.present(AddNotificationVC, animated: true, completion: nil)
     }
     
     @IBAction func cancelButton(_ sender: Any) {

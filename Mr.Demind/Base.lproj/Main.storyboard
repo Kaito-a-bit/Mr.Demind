@@ -293,6 +293,9 @@
                                                 <integer key="value" value="5"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="addNoteButton:" destination="1Jb-UA-zLB" eventType="touchUpInside" id="FOr-Mh-ssV"/>
+                                        </connections>
                                     </button>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Bo5-Gi-9np">
                                         <rect key="frame" x="12" y="168" width="366" height="530"/>
@@ -383,7 +386,7 @@
                         <outlet property="assignmentDeadlineButton" destination="mwV-ZH-SYq" id="w1x-fa-iwJ"/>
                         <outlet property="classTitleTextField" destination="szB-Di-7UR" id="Mc8-nW-GaU"/>
                         <outlet property="descriptionTextView" destination="Bo5-Gi-9np" id="uDJ-4n-ZMB"/>
-                        <outlet property="notificationAdditionButton" destination="vh6-ZS-5Pn" id="trR-Nd-unI"/>
+                        <outlet property="notificationAdditionButton" destination="vh6-ZS-5Pn" id="eBa-lw-OYi"/>
                         <outlet property="publishedDateButton" destination="ZVA-gU-YWc" id="gSN-zu-IFR"/>
                         <outlet property="viewingDeadlineButton" destination="MZ4-bn-slL" id="ylB-SM-MOs"/>
                     </connections>
@@ -395,7 +398,7 @@
         <!--Add Notification View Controller-->
         <scene sceneID="jQu-b6-uh9">
             <objects>
-                <viewController id="T9X-kS-dz5" customClass="AddNotificationViewController" customModule="Mr_Demind" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddNotificationVC" id="T9X-kS-dz5" customClass="AddNotificationViewController" customModule="Mr_Demind" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9Or-g0-Q4Q">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -406,7 +409,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YtI-Yy-T7h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4560.8695652173919" y="97.767857142857139"/>
+            <point key="canvasLocation" x="3507" y="98"/>
         </scene>
         <!--Item-->
         <scene sceneID="DJw-Va-hDj">
@@ -444,24 +447,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qY1-Oe-o2R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="98.4375"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="bxq-O9-xRl">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="FP0-Hs-J42" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hPe-4d-mzP">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="T9X-kS-dz5" kind="relationship" relationship="rootViewController" id="UNN-F7-4uO"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wvw-hR-huz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3650.7246376811595" y="97.767857142857139"/>
         </scene>
     </scenes>
     <resources>
