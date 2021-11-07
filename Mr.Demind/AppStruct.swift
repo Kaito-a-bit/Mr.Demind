@@ -19,14 +19,20 @@ enum DayOfTheWeek: String, CaseIterable, Codable {
     case Sunday = "日"
 }
 
+enum ViewsLeftBehind {
+    case register
+    case edit
+}
+
 // struct for task registration.
 struct registeredItems: Codable {
     var classTitle: String
     var arrForButtons: [Int]
     var description: String?
+    var ToggledDates: ToggledDates
 }
 
-enum ViewsLeftBehind {
-    case register
-    case edit
+struct ToggledDates: Codable {
+    var pub_Date_IsToggled: Bool
 }
+
