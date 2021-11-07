@@ -392,10 +392,10 @@
             </objects>
             <point key="canvasLocation" x="2766.666666666667" y="97.767857142857139"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Notification View Controller-->
         <scene sceneID="jQu-b6-uh9">
             <objects>
-                <viewController id="T9X-kS-dz5" sceneMemberID="viewController">
+                <viewController id="T9X-kS-dz5" customClass="AddNotificationViewController" customModule="Mr_Demind" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9Or-g0-Q4Q">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
