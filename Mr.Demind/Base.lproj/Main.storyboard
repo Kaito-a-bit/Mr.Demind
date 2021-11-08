@@ -411,6 +411,9 @@
                                         <subviews>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H7Q-bG-6z2">
                                                 <rect key="frame" x="245" y="16.5" width="51" height="31"/>
+                                                <connections>
+                                                    <action selector="SwitchPubDateNotes:" destination="T9X-kS-dz5" eventType="valueChanged" id="M4w-dc-Jye"/>
+                                                </connections>
                                             </switch>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="授業公開日に通知する" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jhk-UU-nbm">
                                                 <rect key="frame" x="16" y="22" width="173.5" height="20.5"/>
@@ -468,6 +471,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="CrL-Mw-463"/>
+                    <connections>
+                        <outlet property="switchPubDateNotes" destination="H7Q-bG-6z2" id="9qN-Vn-zr6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YtI-Yy-T7h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

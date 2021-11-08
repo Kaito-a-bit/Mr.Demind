@@ -38,6 +38,7 @@ class TaskRegisterViewController: UIViewController {
         case .edit:
             if let values = TaskRegisterViewController.inheritedItem {
                 classTitleTextField.text = values.classTitle
+                indexForButtons = values.arrForButtons
                 publishedDateButton.setAttributedTitle(NSAttributedString(string: "公開日:\(DayOfTheWeek.allCases[values.arrForButtons[0]].rawValue)", attributes: attributes), for: .normal)
                 viewingDeadlineButton.setAttributedTitle(NSAttributedString(string: "視聴期限:\(DayOfTheWeek.allCases[values.arrForButtons[1]].rawValue)", attributes: attributes), for: .normal)
                 assignmentDeadlineButton.setAttributedTitle(NSAttributedString(string: "課題期限:\(DayOfTheWeek.allCases[values.arrForButtons[2]].rawValue)", attributes: attributes), for: .normal)
@@ -68,6 +69,7 @@ class TaskRegisterViewController: UIViewController {
             taskEditing()
             self.dismiss(animated: true, completion: nil)
         }
+        print(ClassListViewController.itemsForClassTableView)
     }
     
     
@@ -95,7 +97,8 @@ class TaskRegisterViewController: UIViewController {
             ClassListViewController.itemsForClassTableView.append(
                 registeredItems(classTitle: classTitle,
                                 arrForButtons: indexForButtons,
-                                description: descriptionTextView.text))
+                                description: descriptionTextView.text,
+                                ToggledDates: AddNotificationViewController.toggledItem))
         }
     }
     
@@ -106,6 +109,7 @@ class TaskRegisterViewController: UIViewController {
             item.classTitle = classTitle
             item.arrForButtons = indexForButtons
             item.description = descriptionTextView.text
+            item.ToggledDates = AddNotificationViewController.toggledItem
             ClassListViewController.itemsForClassTableView[inheritedIndex] = item
         }
     }
@@ -118,6 +122,7 @@ class TaskRegisterViewController: UIViewController {
         viewingDeadlineButton.setAttributedTitle(NSAttributedString(string: "視聴期限:\(DayOfTheWeek.allCases[indexForButtons[1]].rawValue)", attributes: attributes), for: .normal)
         assignmentDeadlineButton.setAttributedTitle(NSAttributedString(string: "課題期限:\(DayOfTheWeek.allCases[indexForButtons[2]].rawValue)", attributes: attributes), for: .normal)
         descriptionTextView.text.removeAll()
+        AddNotificationViewController.toggledItem.pub_Date_IsToggled = true
     }
 }
 
