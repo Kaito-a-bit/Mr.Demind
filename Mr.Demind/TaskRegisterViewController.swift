@@ -38,6 +38,7 @@ class TaskRegisterViewController: UIViewController {
         case .edit:
             if let values = TaskRegisterViewController.inheritedItem {
                 classTitleTextField.text = values.classTitle
+                indexForButtons = values.arrForButtons
                 publishedDateButton.setAttributedTitle(NSAttributedString(string: "公開日:\(DayOfTheWeek.allCases[values.arrForButtons[0]].rawValue)", attributes: attributes), for: .normal)
                 viewingDeadlineButton.setAttributedTitle(NSAttributedString(string: "視聴期限:\(DayOfTheWeek.allCases[values.arrForButtons[1]].rawValue)", attributes: attributes), for: .normal)
                 assignmentDeadlineButton.setAttributedTitle(NSAttributedString(string: "課題期限:\(DayOfTheWeek.allCases[values.arrForButtons[2]].rawValue)", attributes: attributes), for: .normal)
