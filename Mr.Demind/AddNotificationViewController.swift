@@ -10,7 +10,8 @@ import UIKit
 class AddNotificationViewController: UIViewController {
     
     @IBOutlet weak var switchPubDateNotes: UISwitch!
-    static var toggledItem: ToggledDates! = ToggledDates(pub_Date_IsToggled: true)
+    static var toggledItem: ToggledDates! = ToggledDates(pub_Date_IsToggled: true,
+                                                         view_Date_IsToggled: true )
     
     override func viewDidLoad() {
         switchPubDateNotes.isOn = true
@@ -19,5 +20,9 @@ class AddNotificationViewController: UIViewController {
     
     @IBAction func SwitchPubDateNotes(_ sender: Any) {
         AddNotificationViewController.toggledItem.pub_Date_IsToggled.toggle()
+    }
+    
+    @IBAction func SwitchViewDateNotes(_ sender: Any) {
+        AddNotificationViewController.toggledItem.view_Date_IsToggled.toggle()
     }
 }
