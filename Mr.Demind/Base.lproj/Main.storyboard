@@ -476,6 +476,7 @@
                     <navigationItem key="navigationItem" id="CrL-Mw-463"/>
                     <connections>
                         <outlet property="switchPubDateNotes" destination="H7Q-bG-6z2" id="9qN-Vn-zr6"/>
+                        <outlet property="switchViewDateNotes" destination="gPH-Eh-pEd" id="fLt-Ei-ca8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YtI-Yy-T7h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
