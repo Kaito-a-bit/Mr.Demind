@@ -34,5 +34,6 @@ struct registeredItems: Codable {
 
 struct ToggledDates: Codable {
     var pub_Date_IsToggled: Bool
+    var view_Date_IsToggled: Bool
 }
 
