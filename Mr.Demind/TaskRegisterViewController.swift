@@ -100,6 +100,7 @@ class TaskRegisterViewController: UIViewController {
                                 description: descriptionTextView.text,
                                 ToggledDates: AddNotificationViewController.toggledItem))
         }
+        IndexConversion().IndexConversion(index: indexForButtons)
     }
     
     func taskEditing() {

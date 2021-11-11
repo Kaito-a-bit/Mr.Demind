@@ -13,7 +13,7 @@ class IndexConversion {
     
     let formatter = DateFormatter()
     let cases = DayOfTheWeek.allCases
-    var convertedIndex: [String]!
+    var convertedIndex: [String]! = []
     
     func IndexConversion(index: [Int]) {
         if index.count >= 4 {
@@ -24,7 +24,7 @@ class IndexConversion {
                 convertedIndex.append(newIndex.rawValue)
             }
         }
-        
+        print(convertedIndex)
     }
     
     
