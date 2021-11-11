@@ -39,7 +39,11 @@ class IndexConversion {
     func setUpDateToNote(index: [Int?]) -> [Date?] {
         var datesToNote:[Date?] = []
         cal.locale = NSLocale.current
-        setUpBasicForDates()
+        components.year = 2021
+        components.weekOfMonth = 1
+        components.weekOfMonth = 1
+        components.hour = 9
+        components.minute = 0
         for i in index {
             if i == nil {
                 datesToNote.append(nil)
@@ -51,14 +55,5 @@ class IndexConversion {
             }
         }
         return datesToNote
-    }
-    
-    
-    func setUpBasicForDates() {
-        components.year = 2021
-        components.weekOfMonth = 1
-        components.weekOfMonth = 1
-        components.hour = 9
-        components.minute = 0
     }
 }
