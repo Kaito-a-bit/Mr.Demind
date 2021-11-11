@@ -7,26 +7,58 @@
 
 import Foundation
 
-//指定したインデックスの配列から通知するべき曜日を取得したい
+//指定したインデックスの配列から通知関数を作る
 // ex: [0,1,4] → ["-", "火", "木"]
 class IndexConversion {
     
-    let formatter = DateFormatter()
-    let cases = DayOfTheWeek.allCases
-    var convertedIndex: [String]! = []
+    let cal = NSCalendar(calendarIdentifier: NSCalendar.Identifier.gregorian)!
+    var components = DateComponents()
     
-    func IndexConversion(index: [Int]) {
+    //Indexを取得→日曜基準のNSDateComponentsに変換
+    func convertIndex(index: [Int]) -> [Int?] {
+        var convertedIndex: [Int?] = []
         if index.count >= 4 {
-            print("error")
+            print("There's something wrong with the Date Index Arr.")
         } else {
             for i in index {
-                let newIndex = cases[i]
-                convertedIndex.append(newIndex.rawValue)
+                switch i {
+                case 0:
+                    convertedIndex.append(nil)
+                case 1...6:
+                    convertedIndex.append(i + 1)
+                case 7:
+                    convertedIndex.append(1)
+                default:
+                    break
+                }
             }
         }
-        print(convertedIndex)
+        return convertedIndex
+    }
+    
+    func setUpDateToNote(index: [Int?]) -> [Date?] {
+        var datesToNote:[Date?] = []
+        cal.locale = NSLocale.current
+        setUpBasicForDates()
+        for i in index {
+            if i == nil {
+                datesToNote.append(nil)
+            } else {
+                components.weekday = i
+                if let date = cal.date(from: components) {
+                    datesToNote.append(date)
+                }
+            }
+        }
+        return datesToNote
     }
     
     
-    
+    func setUpBasicForDates() {
+        components.year = 2021
+        components.weekOfMonth = 1
+        components.weekOfMonth = 1
+        components.hour = 9
+        components.minute = 0
+    }
 }
