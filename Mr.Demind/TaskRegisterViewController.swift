@@ -100,8 +100,6 @@ class TaskRegisterViewController: UIViewController {
                                 description: descriptionTextView.text,
                                 ToggledDates: AddNotificationViewController.toggledItem))
         }
-        let rawIndex = IndexConversion().convertIndex(index: indexForButtons)
-        print(IndexConversion().setUpDateToNote(index: rawIndex))
     }
     
     func taskEditing() {
@@ -124,6 +122,7 @@ class TaskRegisterViewController: UIViewController {
         viewingDeadlineButton.setAttributedTitle(NSAttributedString(string: "視聴期限:\(DayOfTheWeek.allCases[indexForButtons[1]].rawValue)", attributes: attributes), for: .normal)
         assignmentDeadlineButton.setAttributedTitle(NSAttributedString(string: "課題期限:\(DayOfTheWeek.allCases[indexForButtons[2]].rawValue)", attributes: attributes), for: .normal)
         descriptionTextView.text.removeAll()
+        //これ消しても良いかも↓
         AddNotificationViewController.toggledItem.pub_Date_IsToggled = true
     }
 }
