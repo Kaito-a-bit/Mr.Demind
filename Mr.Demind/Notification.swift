@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Notification {
+struct NotificationProcessing {
     
     let cal = NSCalendar(calendarIdentifier: NSCalendar.Identifier.gregorian)!
     
@@ -45,6 +45,7 @@ class Notification {
         for i in arr {
             if i == nil {
                 notificationDates.append(nil)
+            } else {
                 components.weekday = i
                 if let date = cal.date(from: components) {
                     notificationDates.append(date)
