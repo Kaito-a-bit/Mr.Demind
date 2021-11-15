@@ -30,6 +30,7 @@ struct registeredItems: Codable {
     var arrForButtons: [Int]
     var description: String?
     var ToggledDates: ToggledDates
+    var NotificationDates: [DateComponents]
 }
 
 struct ToggledDates: Codable {
