@@ -106,6 +106,7 @@ class TaskRegisterViewController: UIViewController {
     }
     
     func taskEditing() {
+        let arr = NotificationProcessing().convertIntoRawIndex(arr: indexForButtons)
         if let classTitle = classTitleTextField.text,
            var item = TaskRegisterViewController.inheritedItem,
            let inheritedIndex = ClassListViewController.indexForEditedItem {
@@ -113,6 +114,7 @@ class TaskRegisterViewController: UIViewController {
             item.arrForButtons = indexForButtons
             item.description = descriptionTextView.text
             item.ToggledDates = AddNotificationViewController.toggledItem
+            item.NotificationDates = NotificationProcessing().appendNotificationDates(arr: arr)
             ClassListViewController.itemsForClassTableView[inheritedIndex] = item
         }
     }
