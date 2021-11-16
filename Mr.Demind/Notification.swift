@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UserNotifications
 
 struct NotificationProcessing {
     
@@ -33,8 +34,8 @@ struct NotificationProcessing {
         return rawIndex
     }
     
-    func appendNotificationDates(arr: [Int?]) -> [Date?] {
-        var notificationDates: [Date?] = []
+    func appendNotificationDates(arr: [Int?]) -> [DateComponents?] {
+        var notificationDates: [DateComponents?] = []
         var components = DateComponents()
         components.year = 2021
         components.weekOfMonth = 1
@@ -47,13 +48,9 @@ struct NotificationProcessing {
                 notificationDates.append(nil)
             } else {
                 components.weekday = i
-                if let date = cal.date(from: components) {
-                    notificationDates.append(date)
-                }
+                notificationDates.append(components)
             }
         }
         return notificationDates
     }
-    
-    
 }
