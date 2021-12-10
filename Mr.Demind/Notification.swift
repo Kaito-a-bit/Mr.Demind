@@ -12,7 +12,7 @@ struct NotificationProcessing {
     
     let cal = NSCalendar(calendarIdentifier: NSCalendar.Identifier.gregorian)!
     let notificationCenter = UNUserNotificationCenter.current()
-    static var arrForAllSubject: [[String]] = []
+    static var arrForAllSubject: [String: [String]] = [:]
     //indexをswiftのDateComponentsの日曜始点に変換
     func convertIntoRawIndex(arr: [Int]) -> [Int?] {
         var rawIndex: [Int?] = []
@@ -54,7 +54,7 @@ struct NotificationProcessing {
     
     func registerNotification(item: registeredItems) {
         //個々の科目の配列
-        var idForOneSubject: [String] = []
+        var idsForOneSubject: [String] = []
         for i in item.NotificationDates {
             if let dateComponent = i {
                 let content = UNMutableNotificationContent()
@@ -68,10 +68,10 @@ struct NotificationProcessing {
                         print(error.debugDescription)
                     }
                 }
-                idForOneSubject.append(idString)
+                idsForOneSubject.append(idString)
             }
         }
-        NotificationProcessing.arrForAllSubject.append(idForOneSubject)
+        NotificationProcessing.arrForAllSubject.updateValue(idsForOneSubject, forKey: item.classTitle)
         print(NotificationProcessing.arrForAllSubject)
     }
     
