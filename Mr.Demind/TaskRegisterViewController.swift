@@ -96,7 +96,9 @@ class TaskRegisterViewController: UIViewController {
     }
     
     func taskAddition() {
+        //月曜始点Index→日曜始点Indexに変換
         let arr = NotificationProcessing().convertIntoRawIndex(arr: indexForButtons)
+        //日曜始点Index→通知作成用[Date]を作成
         let createdDates = NotificationProcessing().appendNotificationDates(arr: arr)
         if let classTitle = classTitleTextField.text {
             let appendedItem = registeredItems(classTitle: classTitle,
@@ -104,7 +106,9 @@ class TaskRegisterViewController: UIViewController {
                                               description: descriptionTextView.text,
                                               ToggledDates: AddNotificationViewController.toggledItem,
                                               NotificationDates: createdDates)
+            //科目一覧用のアイテム配列に追加
             ClassListViewController.itemsForClassTableView.append(appendedItem)
+            //通知登録
             NotificationProcessing().registerNotification(item: appendedItem)
         }
     }
