@@ -70,6 +70,9 @@ class TaskRegisterViewController: UIViewController {
             self.dismiss(animated: true, completion: nil)
         }
         print(ClassListViewController.itemsForClassTableView)
+        UNUserNotificationCenter.current().getPendingNotificationRequests {
+            print("Pending requests :", $0)
+        }
     }
     
     

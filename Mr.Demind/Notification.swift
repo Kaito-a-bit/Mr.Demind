@@ -12,6 +12,7 @@ struct NotificationProcessing {
     
     let cal = NSCalendar(calendarIdentifier: NSCalendar.Identifier.gregorian)!
     let notificationCenter = UNUserNotificationCenter.current()
+    static var arrForAllSubject: [[String]] = []
     //indexをswiftのDateComponentsの日曜始点に変換
     func convertIntoRawIndex(arr: [Int]) -> [Int?] {
         var rawIndex: [Int?] = []
@@ -52,23 +53,26 @@ struct NotificationProcessing {
     }
     
     func registerNotification(item: registeredItems) {
+        //個々の科目の配列
+        var idForOneSubject: [String] = []
         for i in item.NotificationDates {
             if let dateComponent = i {
                 let content = UNMutableNotificationContent()
                 let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponent, repeats: true)
                 content.title = "\(item.classTitle)が公開されました！"
                 content.body = "視聴期限は\(DayOfTheWeek.allCases[item.arrForButtons[2]])"
-                let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+                let idString = UUID().uuidString
+                let request = UNNotificationRequest(identifier: idString, content: content, trigger: trigger)
                 notificationCenter.add(request) { (error) in
                     if error != nil {
                         print(error.debugDescription)
                     }
                 }
-                UNUserNotificationCenter.current().getPendingNotificationRequests {
-                    print("Pending requests :", $0)
-                }
+                idForOneSubject.append(idString)
             }
         }
+        NotificationProcessing.arrForAllSubject.append(idForOneSubject)
+        print(NotificationProcessing.arrForAllSubject)
     }
     
 }

@@ -27,6 +27,13 @@ class ClassListViewController: UIViewController {
         self.classTableView.reloadData()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+//        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+//        UNUserNotificationCenter.current().getPendingNotificationRequests {
+//            print("Pending requests :", $0)
+//        }
+    }
+    
     @IBAction func registerButton(_ sender: Any) {
         //登録ボタンからきたことを指定
         TaskRegisterViewController.fromWhere = .register
