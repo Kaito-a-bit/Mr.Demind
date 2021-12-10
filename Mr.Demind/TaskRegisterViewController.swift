@@ -94,14 +94,15 @@ class TaskRegisterViewController: UIViewController {
     
     func taskAddition() {
         let arr = NotificationProcessing().convertIntoRawIndex(arr: indexForButtons)
+        let createdDates = NotificationProcessing().appendNotificationDates(arr: arr)
         if let classTitle = classTitleTextField.text {
-                ClassListViewController.itemsForClassTableView.append(
-                registeredItems(classTitle: classTitle,
-                                arrForButtons: indexForButtons,
-                                description: descriptionTextView.text,
-                                ToggledDates: AddNotificationViewController.toggledItem,
-                                NotificationDates: NotificationProcessing().appendNotificationDates(arr: arr)
-                               ))
+            let appendedItem = registeredItems(classTitle: classTitle,
+                                              arrForButtons: indexForButtons,
+                                              description: descriptionTextView.text,
+                                              ToggledDates: AddNotificationViewController.toggledItem,
+                                              NotificationDates: createdDates)
+            ClassListViewController.itemsForClassTableView.append(appendedItem)
+            NotificationProcessing().registerNotification(item: appendedItem)
         }
     }
     
