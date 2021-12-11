@@ -110,6 +110,7 @@ class TaskRegisterViewController: UIViewController {
             ClassListViewController.itemsForClassTableView.append(appendedItem)
             //通知登録
             NotificationProcessing().registerNotification(item: appendedItem)
+            UserDataBase().saveIDsForNotification(values: NotificationProcessing.arrForAllSubject)
         }
     }
     
@@ -125,7 +126,6 @@ class TaskRegisterViewController: UIViewController {
             item.NotificationDates = NotificationProcessing().appendNotificationDates(arr: arr)
             ClassListViewController.itemsForClassTableView[inheritedIndex] = item
         }
-        UserDataBase().saveIDsForNotification(values: NotificationProcessing.arrForAllSubject)
     }
     
     //initialize registration field

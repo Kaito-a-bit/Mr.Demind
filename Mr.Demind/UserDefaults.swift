@@ -33,5 +33,11 @@ class UserDataBase {
         userDefaults.set(values, forKey: Identifiers.keyForArrayForUUIDs)
     }
     
+    func restoreIdsForNotification() -> [String: [String]]? {
+        guard let values = userDefaults.object(forKey: Identifiers.keyForArrayForUUIDs) as? [String: [String]] else {
+            return nil
+        }
+        return values
+    }
     
 }

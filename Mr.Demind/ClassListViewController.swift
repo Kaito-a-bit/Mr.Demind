@@ -17,6 +17,7 @@ class ClassListViewController: UIViewController {
     static var itemsForClassTableView: [registeredItems] = []
     static var savedItemsForClassTableView: [registeredItems]!
     var isTappedInitially: Bool = true
+    var savedIdsForArrForUUIDs: [String: [String]] = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,9 +26,13 @@ class ClassListViewController: UIViewController {
             ClassListViewController.itemsForClassTableView = restoredValues
         }
         self.classTableView.reloadData()
+        if let restoredValues = userDataBase.restoreIdsForNotification() {
+            savedIdsForArrForUUIDs = restoredValues
+            print(savedIdsForArrForUUIDs)
+        }
     }
     
-    //通知削除したい
+//    通知削除したい
 //    override func viewWillAppear(_ animated: Bool) {
 //        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
 //    }
