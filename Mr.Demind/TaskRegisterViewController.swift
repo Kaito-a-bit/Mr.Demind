@@ -103,7 +103,7 @@ class TaskRegisterViewController: UIViewController {
                                               NotificationDates: createdDates,
                                               uuidForNote: NotificationProcessing().createUUIDs())
             ClassListViewController.itemsForClassTableView.append(appendedItem)
-            NotificationProcessing().registerNotification(item: appendedItem)
+            NotificationProcessing().addNotification(item: appendedItem)
         }
     }
     

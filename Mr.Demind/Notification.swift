@@ -51,7 +51,7 @@ struct NotificationProcessing {
         return notificationDates
     }
     
-    func registerNotification(item: registeredItems) {
+    func addNotification(item: registeredItems) {
         for i in 0..<(item.NotificationDates.count) {
             if let dateComponent = item.NotificationDates[i] {
                 let content = UNMutableNotificationContent()
@@ -67,6 +67,10 @@ struct NotificationProcessing {
             }
         }
     }
+    
+//    func deleteNotification(item:) {
+//        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [uuid])
+//    }
     
     func createUUIDs() -> [String] {
         var idArr: [String] = []
