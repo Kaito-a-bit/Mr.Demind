@@ -100,7 +100,8 @@ class TaskRegisterViewController: UIViewController {
                                               arrForButtons: indexForButtons,
                                               description: descriptionTextView.text,
                                               ToggledDates: AddNotificationViewController.toggledItem,
-                                              NotificationDates: createdDates)
+                                              NotificationDates: createdDates,
+                                              uuidForNote: NotificationProcessing().createUUIDs())
             ClassListViewController.itemsForClassTableView.append(appendedItem)
             NotificationProcessing().registerNotification(item: appendedItem)
         }

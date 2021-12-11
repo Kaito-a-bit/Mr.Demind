@@ -31,6 +31,7 @@ struct registeredItems: Codable {
     var description: String?
     var ToggledDates: ToggledDates
     var NotificationDates: [DateComponents?]
+    var uuidForNote: [String]
 }
 
 struct ToggledDates: Codable {
