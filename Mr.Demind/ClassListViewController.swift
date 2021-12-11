@@ -33,9 +33,9 @@ class ClassListViewController: UIViewController {
     }
     
 //    通知削除したい
-//    override func viewWillAppear(_ animated: Bool) {
-//        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
-//    }
+    override func viewWillAppear(_ animated: Bool) {
+        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+    }
     
     @IBAction func registerButton(_ sender: Any) {
         //登録ボタンからきたことを指定

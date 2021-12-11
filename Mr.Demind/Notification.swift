@@ -14,6 +14,7 @@ struct NotificationProcessing {
     let notificationCenter = UNUserNotificationCenter.current()
     //科目+それに対応するUUIDを保存する配列
     static var arrForAllSubject: [String: [String]] = [:]
+    static var savedArrForAllSubject: [String: [String]]!
     //indexをswiftのDateComponentsの日曜始点に変換
     func convertIntoRawIndex(arr: [Int]) -> [Int?] {
         var rawIndex: [Int?] = []
@@ -73,7 +74,8 @@ struct NotificationProcessing {
             }
         }
         NotificationProcessing.arrForAllSubject.updateValue(idsForOneSubject, forKey: item.classTitle)
-        print(NotificationProcessing.arrForAllSubject)
+        NotificationProcessing.savedArrForAllSubject = NotificationProcessing.arrForAllSubject
+        print("savedArrForAllSubject: \(NotificationProcessing.savedArrForAllSubject)")
     }
     
 }

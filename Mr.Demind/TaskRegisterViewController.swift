@@ -110,7 +110,7 @@ class TaskRegisterViewController: UIViewController {
             ClassListViewController.itemsForClassTableView.append(appendedItem)
             //通知登録
             NotificationProcessing().registerNotification(item: appendedItem)
-            UserDataBase().saveIDsForNotification(values: NotificationProcessing.arrForAllSubject)
+            UserDataBase().saveIDsForNotification(values: NotificationProcessing.savedArrForAllSubject)
         }
     }
     
