@@ -64,16 +64,13 @@ struct NotificationProcessing {
                         print(error.debugDescription)
                     }
                 }
-                UNUserNotificationCenter.current().getPendingNotificationRequests {
-                    print("Pending requests :", $0)
-                }
             }
         }
     }
     
     func createUUIDs() -> [String] {
         var idArr: [String] = []
-        for i in 0...2 {
+        for _ in 0...2 {
             let id = UUID().uuidString
             idArr.append(id)
         }

@@ -25,6 +25,7 @@ class ClassListViewController: UIViewController {
             ClassListViewController.itemsForClassTableView = restoredValues
         }
         self.classTableView.reloadData()
+        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
     }
     
     @IBAction func registerButton(_ sender: Any) {
