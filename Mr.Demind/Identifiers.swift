@@ -13,4 +13,5 @@ class Identifiers {
     static var idForTaskRegisterVC = "TaskRegisterVC"
     static var idForAddNoteVC = "AddNotificationVC"
     static var keyForItemsForClassTableView = "keyForItemsForClassTableView"
+    static var keyForArrayForUUIDs = "keyForArrayForUUIDs"
 }

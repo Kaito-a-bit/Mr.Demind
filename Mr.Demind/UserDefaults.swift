@@ -29,6 +29,9 @@ class UserDataBase {
         return restoredItemsForClassTableView
     }
     
+    func saveIDsForNotification(values: [String: [String]]) {
+        userDefaults.set(values, forKey: Identifiers.keyForArrayForUUIDs)
+    }
     
     
 }
