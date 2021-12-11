@@ -68,9 +68,10 @@ struct NotificationProcessing {
         }
     }
     
-//    func deleteNotification(item:) {
-//        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [uuid])
-//    }
+    //この関数を使用する場合は引数に指定するUUIDを先に指定しておく
+    func deleteNotification(uuid: String) {
+        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [uuid])
+    }
     
     func createUUIDs() -> [String] {
         var idArr: [String] = []
