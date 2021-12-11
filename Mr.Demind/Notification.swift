@@ -71,4 +71,13 @@ struct NotificationProcessing {
         }
     }
     
+    func createUUIDs() -> [String] {
+        var idArr: [String] = []
+        for i in 0...2 {
+            let id = UUID().uuidString
+            idArr.append(id)
+        }
+        return idArr
+    }
+    
 }
