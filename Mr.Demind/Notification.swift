@@ -12,6 +12,7 @@ struct NotificationProcessing {
     
     let cal = NSCalendar(calendarIdentifier: NSCalendar.Identifier.gregorian)!
     let notificationCenter = UNUserNotificationCenter.current()
+    //科目+それに対応するUUIDを保存する配列
     static var arrForAllSubject: [String: [String]] = [:]
     //indexをswiftのDateComponentsの日曜始点に変換
     func convertIntoRawIndex(arr: [Int]) -> [Int?] {
