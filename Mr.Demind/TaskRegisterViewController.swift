@@ -61,15 +61,17 @@ class TaskRegisterViewController: UIViewController {
     
     @IBAction func registerButton(_ sender: Any) {
         switch TaskRegisterViewController.fromWhere {
+        //科目を追加する場合 .register
         case .register:
             taskAddition()
             self.dismiss(animated: true, completion: nil)
+        //科目を編集する場合 .edit
         case .edit:
             //ここでClassListViewControllerから取ってきた情報を元の場所に戻したい。
             taskEditing()
             self.dismiss(animated: true, completion: nil)
         }
-        print(ClassListViewController.itemsForClassTableView)
+//        print(ClassListViewController.itemsForClassTableView)
     }
     
     
@@ -123,6 +125,8 @@ class TaskRegisterViewController: UIViewController {
             item.description = descriptionTextView.text
             item.ToggledDates = AddNotificationViewController.toggledItem
 //            item.NotificationDates = NotificationProcessing().appendNotificationDates(arr: arr)
+            
+            //テーブルの同じ行に追加する↓
             ClassListViewController.itemsForClassTableView[inheritedIndex] = item
         }
     }
