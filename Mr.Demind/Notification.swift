@@ -52,7 +52,31 @@ struct NotificationProcessing {
         return notificationDates
     }
     
-//    func addNotification(item: registeredItem) {
+    
+    func createNotification(item: registeredItem) {
+        for IdAndDate in item.uuidAndDate {
+            let content = UNMutableNotificationContent()
+            guard let date = IdAndDate.value else { break }
+            let trigger = UNCalendarNotificationTrigger(dateMatching: date, repeats: true)
+            
+            content.title = "\(item.classTitle)が公開されました！"
+            content.body = "視聴期限は\(DayOfTheWeek.allCases[item.arrForButtons[2]])"
+            let request = UNNotificationRequest(identifier: IdAndDate.key, content: content, trigger: trigger)
+            notificationCenter.add(request) { (error) in
+                if error != nil {
+                    print(error.debugDescription)
+                }
+            }
+        }
+    }
+    
+
+    //この関数を使用する場合は引数に指定するUUIDを先に指定しておく
+    func deleteNotification(uuid: String) {
+        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [uuid])
+    }
+//
+//    func ammendNotification(item: registeredItem) {
 //        for i in 0..<(item.NotificationDates.count) {
 //            if let dateComponent = item.NotificationDates[i] {
 //                let content = UNMutableNotificationContent()
@@ -68,13 +92,6 @@ struct NotificationProcessing {
 //            }
 //        }
 //    }
-//
-    //この関数を使用する場合は引数に指定するUUIDを先に指定しておく
-    func deleteNotification(uuid: String) {
-        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [uuid])
-    }
-    
-//    c
     
     func createUUIDs() -> [String] {
         var idArr: [String] = []

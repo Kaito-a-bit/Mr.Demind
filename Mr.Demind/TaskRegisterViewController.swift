@@ -97,8 +97,6 @@ class TaskRegisterViewController: UIViewController {
         let dateComponents = generateDateComponents(arr: indexForButtons)
         let uuids = NotificationProcessing().createUUIDs()
         
-        
-        
         if let classTitle = classTitleTextField.text {
             let appendedItem = registeredItem(classTitle: classTitle,
                                               arrForButtons: indexForButtons,
@@ -106,8 +104,11 @@ class TaskRegisterViewController: UIViewController {
                                               ToggledDates: AddNotificationViewController.toggledItem,
                                               uuidAndDate: NotificationProcessing().createDictForIdAndDates(id: uuids, date: dateComponents))
             ClassListViewController.itemsForClassTableView.append(appendedItem)
-            NotificationProcessing().addNotification(item: appendedItem)
+            NotificationProcessing().createNotification(item: appendedItem)
         }
+        UNUserNotificationCenter.current().getPendingNotificationRequests(completionHandler: {
+            print("pending request: \($0)")
+        })
     }
     
     func taskEditing() {
@@ -119,7 +120,7 @@ class TaskRegisterViewController: UIViewController {
             item.arrForButtons = indexForButtons
             item.description = descriptionTextView.text
             item.ToggledDates = AddNotificationViewController.toggledItem
-            item.NotificationDates = NotificationProcessing().appendNotificationDates(arr: arr)
+//            item.NotificationDates = NotificationProcessing().appendNotificationDates(arr: arr)
             ClassListViewController.itemsForClassTableView[inheritedIndex] = item
         }
     }
