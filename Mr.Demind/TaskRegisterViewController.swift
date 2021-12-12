@@ -94,6 +94,7 @@ class TaskRegisterViewController: UIViewController {
     
     //科目を作るときにのみ呼ばれる
     func taskAddition() {
+        //辞書型データを作成するためのUUID・DateComponentsを用意
         let dateComponents = generateDateComponents(arr: indexForButtons)
         let uuids = NotificationProcessing().createUUIDs()
         
@@ -104,6 +105,7 @@ class TaskRegisterViewController: UIViewController {
                                               ToggledDates: AddNotificationViewController.toggledItem,
                                               uuidAndDate: NotificationProcessing().createDictForIdAndDates(id: uuids, date: dateComponents))
             ClassListViewController.itemsForClassTableView.append(appendedItem)
+            //通知をここで作成
             NotificationProcessing().createNotification(item: appendedItem)
         }
         UNUserNotificationCenter.current().getPendingNotificationRequests(completionHandler: {
