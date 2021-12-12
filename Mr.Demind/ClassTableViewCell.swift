@@ -15,7 +15,7 @@ class ClassTableViewCell: UITableViewCell {
     @IBOutlet weak var assignDateLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     
-    func configure(from model: registeredItems) {
+    func configure(from model: registeredItem) {
         classTitle.text = model.classTitle
         pubDateLabel.text = "公開日: \(DayOfTheWeek.allCases[model.arrForButtons[0]].rawValue)"
         viewDateLabel.text = "視聴期限: \(DayOfTheWeek.allCases[model.arrForButtons[1]].rawValue)"

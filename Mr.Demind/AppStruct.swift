@@ -25,12 +25,12 @@ enum ViewsLeftBehind {
 }
 
 // struct for task registration.
-struct registeredItems: Codable {
+struct registeredItem: Codable {
     var classTitle: String
     var arrForButtons: [Int]
     var description: String?
     var ToggledDates: ToggledDates
-    var NotificationDates: [DateComponents?]
+    var uuidAndDate: [String: DateComponents?]
 }
 
 struct ToggledDates: Codable {

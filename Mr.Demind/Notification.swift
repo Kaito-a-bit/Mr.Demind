@@ -34,6 +34,7 @@ struct NotificationProcessing {
         return rawIndex
     }
     
+    //日曜始点のIndexからDateComponentsを作成する
     func appendNotificationDates(arr: [Int?]) -> [DateComponents?] {
         var notificationDates: [DateComponents?] = []
         var components = DateComponents()
@@ -51,24 +52,61 @@ struct NotificationProcessing {
         return notificationDates
     }
     
-    func registerNotification(item: registeredItems) {
-        for i in item.NotificationDates {
-            if let dateComponent = i {
-                let content = UNMutableNotificationContent()
-                let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponent, repeats: true)
-                content.title = "\(item.classTitle)が公開されました！"
-                content.body = "視聴期限は\(DayOfTheWeek.allCases[item.arrForButtons[2]])"
-                let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-                notificationCenter.add(request) { (error) in
-                    if error != nil {
-                        print(error.debugDescription)
-                    }
-                }
-                UNUserNotificationCenter.current().getPendingNotificationRequests {
-                    print("Pending requests :", $0)
+    
+    func createNotification(item: registeredItem) {
+        for IdAndDate in item.uuidAndDate {
+            let content = UNMutableNotificationContent()
+            guard let date = IdAndDate.value else { break }
+            let trigger = UNCalendarNotificationTrigger(dateMatching: date, repeats: true)
+            
+            content.title = "\(item.classTitle)が公開されました！"
+            content.body = "視聴期限は\(DayOfTheWeek.allCases[item.arrForButtons[2]])"
+            let request = UNNotificationRequest(identifier: IdAndDate.key, content: content, trigger: trigger)
+            notificationCenter.add(request) { (error) in
+                if error != nil {
+                    print(error.debugDescription)
                 }
             }
         }
     }
     
+
+    //この関数を使用する場合は引数に指定するUUIDを先に指定しておく
+    func deleteNotification(uuid: String) {
+        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [uuid])
+    }
+//
+//    func ammendNotification(item: registeredItem) {
+//        for i in 0..<(item.NotificationDates.count) {
+//            if let dateComponent = item.NotificationDates[i] {
+//                let content = UNMutableNotificationContent()
+//                let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponent, repeats: true)
+//                content.title = "\(item.classTitle)が公開されました！"
+//                content.body = "視聴期限は\(DayOfTheWeek.allCases[item.arrForButtons[2]])"
+//                let request = UNNotificationRequest(identifier: item.uuidForNote[i], content: content, trigger: trigger)
+//                notificationCenter.add(request) { (error) in
+//                    if error != nil {
+//                        print(error.debugDescription)
+//                    }
+//                }
+//            }
+//        }
+//    }
+    
+    func createUUIDs() -> [String] {
+        var idArr: [String] = []
+        for _ in 0...2 {
+            let id = UUID().uuidString
+            idArr.append(id)
+        }
+        return idArr
+    }
+    
+    func createDictForIdAndDates(id: [String], date: [DateComponents?]) -> [String: DateComponents?] {
+        var dict: [String: DateComponents?] = [:]
+        for i in 0..<(id.count) {
+            dict.updateValue(date[i], forKey: id[i])
+        }
+        return dict
+    }
 }

@@ -19,7 +19,7 @@ class TaskRegisterViewController: UIViewController {
     let AddNotificationVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: Identifiers.idForAddNoteVC) as! AddNotificationViewController
     var indexForButtons: [Int] = [0, 0, 0] //「-」を指定
     static var fromWhere: ViewsLeftBehind = .register
-    static var inheritedItem: registeredItems!
+    static var inheritedItem: registeredItem!
     
     let attributes: [NSAttributedString.Key: Any] = [
         .foregroundColor: UIColor.black,
@@ -61,15 +61,17 @@ class TaskRegisterViewController: UIViewController {
     
     @IBAction func registerButton(_ sender: Any) {
         switch TaskRegisterViewController.fromWhere {
+        //科目を追加する場合 .register
         case .register:
             taskAddition()
             self.dismiss(animated: true, completion: nil)
+        //科目を編集する場合 .edit
         case .edit:
             //ここでClassListViewControllerから取ってきた情報を元の場所に戻したい。
             taskEditing()
             self.dismiss(animated: true, completion: nil)
         }
-        print(ClassListViewController.itemsForClassTableView)
+//        print(ClassListViewController.itemsForClassTableView)
     }
     
     
@@ -92,18 +94,25 @@ class TaskRegisterViewController: UIViewController {
         assignmentDeadlineButton.setAttributedTitle(NSAttributedString(string: "課題期限:\(DayOfTheWeek.allCases[indexForButtons[2]].rawValue)", attributes: attributes), for: .normal)
     }
     
+    //科目を作るときにのみ呼ばれる
     func taskAddition() {
-        let arr = NotificationProcessing().convertIntoRawIndex(arr: indexForButtons)
-        let createdDates = NotificationProcessing().appendNotificationDates(arr: arr)
+        //辞書型データを作成するためのUUID・DateComponentsを用意
+        let dateComponents = generateDateComponents(arr: indexForButtons)
+        let uuids = NotificationProcessing().createUUIDs()
+        
         if let classTitle = classTitleTextField.text {
-            let appendedItem = registeredItems(classTitle: classTitle,
+            let appendedItem = registeredItem(classTitle: classTitle,
                                               arrForButtons: indexForButtons,
                                               description: descriptionTextView.text,
                                               ToggledDates: AddNotificationViewController.toggledItem,
-                                              NotificationDates: createdDates)
+                                              uuidAndDate: NotificationProcessing().createDictForIdAndDates(id: uuids, date: dateComponents))
             ClassListViewController.itemsForClassTableView.append(appendedItem)
-            NotificationProcessing().registerNotification(item: appendedItem)
+            //通知をここで作成
+            NotificationProcessing().createNotification(item: appendedItem)
         }
+        UNUserNotificationCenter.current().getPendingNotificationRequests(completionHandler: {
+            print("pending request: \($0)")
+        })
     }
     
     func taskEditing() {
@@ -115,9 +124,17 @@ class TaskRegisterViewController: UIViewController {
             item.arrForButtons = indexForButtons
             item.description = descriptionTextView.text
             item.ToggledDates = AddNotificationViewController.toggledItem
-            item.NotificationDates = NotificationProcessing().appendNotificationDates(arr: arr)
+//            item.NotificationDates = NotificationProcessing().appendNotificationDates(arr: arr)
+            
+            //テーブルの同じ行に追加する↓
             ClassListViewController.itemsForClassTableView[inheritedIndex] = item
         }
+    }
+    
+    func generateDateComponents(arr: [Int]) -> [DateComponents?]{
+        let arr = NotificationProcessing().convertIntoRawIndex(arr: indexForButtons)
+        let createdDates = NotificationProcessing().appendNotificationDates(arr: arr)
+        return createdDates
     }
     
     //initialize registration field

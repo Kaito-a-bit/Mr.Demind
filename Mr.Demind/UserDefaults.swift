@@ -14,16 +14,16 @@ class UserDataBase {
     let encoder = JSONEncoder()
     let decoder = JSONDecoder()
     
-    func saveItemsForClassTableview(values: [registeredItems]) {
+    func saveItemsForClassTableview(values: [registeredItem]) {
         guard let data = try? encoder.encode(values) else {
             return
         }
         userDefaults.set(data, forKey: Identifiers.keyForItemsForClassTableView)
     }
     
-    func restoreItemsForClassTableView() -> [registeredItems]? {
+    func restoreItemsForClassTableView() -> [registeredItem]? {
         guard let data = userDefaults.data(forKey: Identifiers.keyForItemsForClassTableView),
-              let restoredItemsForClassTableView = try? decoder.decode([registeredItems].self, from: data) else {
+              let restoredItemsForClassTableView = try? decoder.decode([registeredItem].self, from: data) else {
                   return nil
               }
         return restoredItemsForClassTableView
