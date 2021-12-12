@@ -34,6 +34,7 @@ struct NotificationProcessing {
         return rawIndex
     }
     
+    //日曜始点のIndexからDateComponentsを作成する
     func appendNotificationDates(arr: [Int?]) -> [DateComponents?] {
         var notificationDates: [DateComponents?] = []
         var components = DateComponents()
