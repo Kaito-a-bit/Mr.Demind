@@ -92,16 +92,19 @@ class TaskRegisterViewController: UIViewController {
         assignmentDeadlineButton.setAttributedTitle(NSAttributedString(string: "課題期限:\(DayOfTheWeek.allCases[indexForButtons[2]].rawValue)", attributes: attributes), for: .normal)
     }
     
+    //科目を作るときにのみ呼ばれる
     func taskAddition() {
-        let arr = NotificationProcessing().convertIntoRawIndex(arr: indexForButtons)
-        let createdDates = NotificationProcessing().appendNotificationDates(arr: arr)
+        let dateComponents = generateDateComponents(arr: indexForButtons)
+        let uuids = NotificationProcessing().createUUIDs()
+        
+        
+        
         if let classTitle = classTitleTextField.text {
             let appendedItem = registeredItem(classTitle: classTitle,
                                               arrForButtons: indexForButtons,
                                               description: descriptionTextView.text,
                                               ToggledDates: AddNotificationViewController.toggledItem,
-                                              NotificationDates: createdDates,
-                                              uuidForNote: NotificationProcessing().createUUIDs())
+                                              uuidAndDate: NotificationProcessing().createDictForIdAndDates(id: uuids, date: dateComponents))
             ClassListViewController.itemsForClassTableView.append(appendedItem)
             NotificationProcessing().addNotification(item: appendedItem)
         }
@@ -119,6 +122,12 @@ class TaskRegisterViewController: UIViewController {
             item.NotificationDates = NotificationProcessing().appendNotificationDates(arr: arr)
             ClassListViewController.itemsForClassTableView[inheritedIndex] = item
         }
+    }
+    
+    func generateDateComponents(arr: [Int]) -> [DateComponents?]{
+        let arr = NotificationProcessing().convertIntoRawIndex(arr: indexForButtons)
+        let createdDates = NotificationProcessing().appendNotificationDates(arr: arr)
+        return createdDates
     }
     
     //initialize registration field
