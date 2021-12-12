@@ -25,7 +25,7 @@ enum ViewsLeftBehind {
 }
 
 // struct for task registration.
-struct registeredItems: Codable {
+struct registeredItem: Codable {
     var classTitle: String
     var arrForButtons: [Int]
     var description: String?

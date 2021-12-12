@@ -19,7 +19,7 @@ class TaskRegisterViewController: UIViewController {
     let AddNotificationVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: Identifiers.idForAddNoteVC) as! AddNotificationViewController
     var indexForButtons: [Int] = [0, 0, 0] //「-」を指定
     static var fromWhere: ViewsLeftBehind = .register
-    static var inheritedItem: registeredItems!
+    static var inheritedItem: registeredItem!
     
     let attributes: [NSAttributedString.Key: Any] = [
         .foregroundColor: UIColor.black,
@@ -96,7 +96,7 @@ class TaskRegisterViewController: UIViewController {
         let arr = NotificationProcessing().convertIntoRawIndex(arr: indexForButtons)
         let createdDates = NotificationProcessing().appendNotificationDates(arr: arr)
         if let classTitle = classTitleTextField.text {
-            let appendedItem = registeredItems(classTitle: classTitle,
+            let appendedItem = registeredItem(classTitle: classTitle,
                                               arrForButtons: indexForButtons,
                                               description: descriptionTextView.text,
                                               ToggledDates: AddNotificationViewController.toggledItem,

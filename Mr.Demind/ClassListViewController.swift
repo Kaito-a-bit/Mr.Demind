@@ -14,8 +14,8 @@ class ClassListViewController: UIViewController {
     let userDataBase = UserDataBase()
     let taskRegisterVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: Identifiers.idForTaskRegisterVC) as! TaskRegisterViewController
     static var indexForEditedItem: Int!
-    static var itemsForClassTableView: [registeredItems] = []
-    static var savedItemsForClassTableView: [registeredItems]!
+    static var itemsForClassTableView: [registeredItem] = []
+    static var savedItemsForClassTableView: [registeredItem]!
     var isTappedInitially: Bool = true
     
     override func viewDidLoad() {

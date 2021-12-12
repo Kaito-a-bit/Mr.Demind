@@ -51,7 +51,7 @@ struct NotificationProcessing {
         return notificationDates
     }
     
-    func addNotification(item: registeredItems) {
+    func addNotification(item: registeredItem) {
         for i in 0..<(item.NotificationDates.count) {
             if let dateComponent = item.NotificationDates[i] {
                 let content = UNMutableNotificationContent()
@@ -73,7 +73,7 @@ struct NotificationProcessing {
         UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [uuid])
     }
     
-    func ammendNotification(item: registeredItems) {
+    func ammendNotification(item: registeredItem) {
         for i in 0..<(item.NotificationDates.count) {
             if let dateComponent = item.NotificationDates[i] {
                 let content = UNMutableNotificationContent()
