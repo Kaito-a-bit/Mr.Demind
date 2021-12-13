@@ -94,7 +94,8 @@ struct NotificationProcessing {
     func createDictForIdAndDates(id: [String], date: [DateComponents?]) -> [String: [String: DateComponents?]] {
         var dict: [String: [String: DateComponents?]] = [:]
         for i in 0..<(id.count) {
-            dict.updateValue([id[i]: date[i]], forKey: notificationType[i])
+            //わかりやすいように「どの通知か」をIDの前に表示する
+            dict.updateValue(["\(notificationType[i])+\(id[i])": date[i]], forKey: notificationType[i])
         }
         print(dict)
         return dict
