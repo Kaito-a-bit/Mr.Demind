@@ -116,7 +116,9 @@ class TaskRegisterViewController: UIViewController {
     }
     
     func taskEditing() {
-        let arr = NotificationProcessing().convertIntoRawIndex(arr: indexForButtons)
+        let dateComponents = generateDateComponents(arr: indexForButtons)
+        let uuids = TaskRegisterViewController.inheritedItem.uuidAndDate.keys
+        
         if let classTitle = classTitleTextField.text,
            var item = TaskRegisterViewController.inheritedItem,
            let inheritedIndex = ClassListViewController.indexForEditedItem {
@@ -124,8 +126,6 @@ class TaskRegisterViewController: UIViewController {
             item.arrForButtons = indexForButtons
             item.description = descriptionTextView.text
             item.ToggledDates = AddNotificationViewController.toggledItem
-//            item.NotificationDates = NotificationProcessing().appendNotificationDates(arr: arr)
-            
             //テーブルの同じ行に追加する↓
             ClassListViewController.itemsForClassTableView[inheritedIndex] = item
         }
