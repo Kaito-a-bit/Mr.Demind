@@ -28,10 +28,12 @@ class AddNotificationViewController: UIViewController {
         }
     }
     
+    //公開日のトグル
     @IBAction func SwitchPubDateNotes(_ sender: Any) {
         AddNotificationViewController.toggledItem.pub_Date_IsToggled.toggle()
     }
     
+    //視聴期限のトグル
     @IBAction func SwitchViewDateNotes(_ sender: Any) {
         AddNotificationViewController.toggledItem.view_Date_IsToggled.toggle()
     }

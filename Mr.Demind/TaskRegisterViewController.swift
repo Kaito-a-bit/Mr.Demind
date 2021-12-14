@@ -20,7 +20,6 @@ class TaskRegisterViewController: UIViewController {
     var indexForButtons: [Int] = [0, 0, 0] //「-」を指定
     static var fromWhere: ViewsLeftBehind = .register
     static var inheritedItem: registeredItem!
-    static var formerIndex: [Int]!
     
     let attributes: [NSAttributedString.Key: Any] = [
         .foregroundColor: UIColor.black,
