@@ -25,7 +25,7 @@ class ClassListViewController: UIViewController {
             ClassListViewController.itemsForClassTableView = restoredValues
         }
         self.classTableView.reloadData()
-        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+//        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
     }
     
     @IBAction func registerButton(_ sender: Any) {
@@ -84,10 +84,19 @@ extension ClassListViewController: UITableViewDelegate, UITableViewDataSource {
     //enable slide from the right side.
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .normal, title: "削除") { action, view, completionHandler in
+            let targetItem = ClassListViewController.itemsForClassTableView[indexPath.row].uuidAndDate
             ClassListViewController.itemsForClassTableView.remove(at: indexPath.row)
             self.classTableView.deleteRows(at: [indexPath], with: .automatic)
             self.updateDataBase()
+            for (_, value) in targetItem {
+                if let idAndDate = value.first {
+                    NotificationProcessing().deleteNotification(uuid: idAndDate.key)
+                }
+            }
             completionHandler(true)
+            UNUserNotificationCenter.current().getPendingNotificationRequests(completionHandler: {
+                print("pending request: \($0)")
+            })
         }
         let action = UISwipeActionsConfiguration(actions: [deleteAction])
         action.performsFirstActionWithFullSwipe = false
