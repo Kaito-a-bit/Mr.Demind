@@ -58,6 +58,7 @@ struct NotificationProcessing {
         for (_, value) in item.uuidAndDate {
             if let idAndDate = value.first {
                 let content = UNMutableNotificationContent()
+                //ここcontinueね
                 guard let date = idAndDate.value else { break }
                 let trigger = UNCalendarNotificationTrigger(dateMatching: date, repeats: true)
                 content.title = "\(item.classTitle)が公開されました！"
@@ -98,5 +99,14 @@ struct NotificationProcessing {
             dict.updateValue([id[i]: date[i]], forKey: notificationType[i])
         }
         return dict
+    }
+    
+    func extractUUIDs(dict: [String: [String: DateComponents?]]) -> [String] {
+        var uuids: [String] = []
+        for type in notificationType {
+            guard let value = dict[type]?.keys.first else { return [""] }
+            uuids.append(value)
+        }
+        return uuids
     }
 }

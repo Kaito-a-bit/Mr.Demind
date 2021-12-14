@@ -117,7 +117,8 @@ class TaskRegisterViewController: UIViewController {
     
     func taskEditing() {
         let dateComponents = generateDateComponents(arr: indexForButtons)
-        let uuids = TaskRegisterViewController.inheritedItem.uuidAndDate.keys
+        let idAndDate = TaskRegisterViewController.inheritedItem.uuidAndDate
+        let uuids = NotificationProcessing().extractUUIDs(dict: idAndDate)
         
         if let classTitle = classTitleTextField.text,
            var item = TaskRegisterViewController.inheritedItem,
@@ -126,9 +127,14 @@ class TaskRegisterViewController: UIViewController {
             item.arrForButtons = indexForButtons
             item.description = descriptionTextView.text
             item.ToggledDates = AddNotificationViewController.toggledItem
+            item.uuidAndDate = NotificationProcessing().createDictForIdAndDates(id: uuids, date: dateComponents)
             //テーブルの同じ行に追加する↓
             ClassListViewController.itemsForClassTableView[inheritedIndex] = item
+            NotificationProcessing().createNotification(item: item)
         }
+        UNUserNotificationCenter.current().getPendingNotificationRequests(completionHandler: {
+            print("pending request: \($0)")
+        })
     }
     
     func generateDateComponents(arr: [Int]) -> [DateComponents?]{
