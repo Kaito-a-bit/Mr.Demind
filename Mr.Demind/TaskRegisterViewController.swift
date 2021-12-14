@@ -20,6 +20,7 @@ class TaskRegisterViewController: UIViewController {
     var indexForButtons: [Int] = [0, 0, 0] //「-」を指定
     static var fromWhere: ViewsLeftBehind = .register
     static var inheritedItem: registeredItem!
+    static var formerIndex: [Int]!
     
     let attributes: [NSAttributedString.Key: Any] = [
         .foregroundColor: UIColor.black,
@@ -130,7 +131,7 @@ class TaskRegisterViewController: UIViewController {
             item.uuidAndDate = NotificationProcessing().createDictForIdAndDates(id: uuids, date: dateComponents)
             //テーブルの同じ行に追加する↓
             ClassListViewController.itemsForClassTableView[inheritedIndex] = item
-            NotificationProcessing().createNotification(item: item)
+            NotificationProcessing().editNotification(item: item)
         }
         UNUserNotificationCenter.current().getPendingNotificationRequests(completionHandler: {
             print("pending request: \($0)")

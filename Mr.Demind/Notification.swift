@@ -79,9 +79,28 @@ struct NotificationProcessing {
         UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [uuid])
     }
  
-    func editNotification() {
-        
+    func editNotification(item: registeredItem) {
+        for (_, value) in item.uuidAndDate {
+            if let idAndDate = value.first {
+                if idAndDate.value == nil {
+                    deleteNotification(uuid: idAndDate.key)
+                } else {
+                    let content = UNMutableNotificationContent()
+                    guard let date = idAndDate.value else { continue }
+                    let trigger = UNCalendarNotificationTrigger(dateMatching: date, repeats: true)
+                    content.title = "\(item.classTitle)が公開されました！"
+                    content.body = "視聴期限は\(DayOfTheWeek.allCases[item.arrForButtons[2]])"
+                    let request = UNNotificationRequest(identifier: idAndDate.key, content: content, trigger: trigger)
+                    notificationCenter.add(request) { (error) in
+                        if error != nil {
+                            print(error.debugDescription)
+                        }
+                    }
+                }
+            }
+        }
     }
+    
     
     func createUUIDs() -> [String] {
         var idArr: [String] = []
