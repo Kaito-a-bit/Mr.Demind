@@ -59,7 +59,7 @@ struct NotificationProcessing {
             if let idAndDate = value.first {
                 let content = UNMutableNotificationContent()
                 //ここcontinueね
-                guard let date = idAndDate.value else { break }
+                guard let date = idAndDate.value else { continue }
                 let trigger = UNCalendarNotificationTrigger(dateMatching: date, repeats: true)
                 content.title = "\(item.classTitle)が公開されました！"
                 content.body = "視聴期限は\(DayOfTheWeek.allCases[item.arrForButtons[2]])"
