@@ -25,8 +25,8 @@ class AddNotificationViewController: UIViewController {
             switchPubDateNotes.isOn = true
             switchViewDateNotes.isOn = true
         case .edit:
-            switchPubDateNotes.isOn = inheritedItem!.ToggledDates.pub_Date_IsToggled
-            switchViewDateNotes.isOn = inheritedItem!.ToggledDates.view_Date_IsToggled
+            switchPubDateNotes.isOn = TaskRegisterViewController.inheritedItem.ToggledDates.pub_Date_IsToggled
+            switchViewDateNotes.isOn = TaskRegisterViewController.inheritedItem.ToggledDates.view_Date_IsToggled
         }
     }
     
