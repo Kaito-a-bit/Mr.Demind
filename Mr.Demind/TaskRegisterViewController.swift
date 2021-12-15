@@ -142,8 +142,9 @@ class TaskRegisterViewController: UIViewController {
     }
     
     func generateDateComponents(arr: [Int]) -> [DateComponents?] {
-        let arr = NotificationProcessing().convertIntoRawIndex(arr: indexForButtons)
-        let createdDates = NotificationProcessing().appendNotificationDates(arr: arr)
+        let rawArr = NotificationProcessing().convertIntoRawIndex(arr: indexForButtons)
+        let assessedIndex = NotificationProcessing().updateRawIndex(item: AddNotificationViewController.toggledItem, index: rawArr)
+        let createdDates = NotificationProcessing().appendNotificationDates(arr: assessedIndex)
         return createdDates
     }
     
