@@ -20,7 +20,6 @@ class TaskRegisterViewController: UIViewController {
     var indexForButtons: [Int] = [0, 0, 0] //「-」を指定
     static var fromWhere: ViewsLeftBehind = .register
     static var inheritedItem: registeredItem!
-    static var formerIndex: [Int]!
     
     let attributes: [NSAttributedString.Key: Any] = [
         .foregroundColor: UIColor.black,
@@ -110,6 +109,8 @@ class TaskRegisterViewController: UIViewController {
             ClassListViewController.itemsForClassTableView.append(appendedItem)
             //通知をここで作成
             NotificationProcessing().createNotification(item: appendedItem)
+            assesToggleItems(item: appendedItem, isToggled: appendedItem.ToggledDates.pub_Date_IsToggled, dictKey: "publish")
+            assesToggleItems(item: appendedItem, isToggled: appendedItem.ToggledDates.view_Date_IsToggled, dictKey: "view")
         }
         UNUserNotificationCenter.current().getPendingNotificationRequests(completionHandler: {
             print("pending request: \($0)")
@@ -132,16 +133,32 @@ class TaskRegisterViewController: UIViewController {
             //テーブルの同じ行に追加する↓
             ClassListViewController.itemsForClassTableView[inheritedIndex] = item
             NotificationProcessing().editNotification(item: item)
+            assesToggleItems(item: item, isToggled: item.ToggledDates.pub_Date_IsToggled, dictKey: "publish")
+            assesToggleItems(item: item, isToggled: item.ToggledDates.view_Date_IsToggled, dictKey: "view")
         }
         UNUserNotificationCenter.current().getPendingNotificationRequests(completionHandler: {
             print("pending request: \($0)")
         })
     }
     
-    func generateDateComponents(arr: [Int]) -> [DateComponents?]{
-        let arr = NotificationProcessing().convertIntoRawIndex(arr: indexForButtons)
-        let createdDates = NotificationProcessing().appendNotificationDates(arr: arr)
+    func generateDateComponents(arr: [Int]) -> [DateComponents?] {
+        let rawArr = NotificationProcessing().convertIntoRawIndex(arr: indexForButtons)
+        let assessedIndex = NotificationProcessing().updateRawIndex(item: AddNotificationViewController.toggledItem, index: rawArr)
+        let createdDates = NotificationProcessing().appendNotificationDates(arr: assessedIndex)
         return createdDates
+    }
+    
+    func assesToggleItems(item: registeredItem,isToggled: Bool, dictKey: String) {
+        switch isToggled {
+        case true:
+            //作ってるけどおなじ日時で更新されるだけ
+            NotificationProcessing().createNotification(item: item)
+        case false:
+            //該当する通知を削除
+            if let dictItem = item.uuidAndDate[dictKey]?.first {
+                NotificationProcessing().deleteNotification(uuid: dictItem.key)
+            }
+        }
     }
     
     //initialize registration field

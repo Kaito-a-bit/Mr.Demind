@@ -35,6 +35,17 @@ struct NotificationProcessing {
         return rawIndex
     }
     
+    func updateRawIndex(item: ToggledDates, index: [Int?]) -> [Int?] {
+        var assessedIndex: [Int?] = index
+        let pub_toggle = item.pub_Date_IsToggled
+        let view_toggle = item.view_Date_IsToggled
+        assessedIndex[0] = pub_toggle == false ? nil : index[0]
+        assessedIndex[1] = view_toggle == false ? nil : index[1]
+        assessedIndex[2] = index[2]
+        print(assessedIndex)
+        return assessedIndex
+    }
+    
     //日曜始点のIndexからDateComponentsを作成する
     func appendNotificationDates(arr: [Int?]) -> [DateComponents?] {
         var notificationDates: [DateComponents?] = []
