@@ -60,18 +60,31 @@ class TaskRegisterViewController: UIViewController {
     }
     
     @IBAction func registerButton(_ sender: Any) {
-        switch TaskRegisterViewController.fromWhere {
-        //科目を追加する場合 .register
-        case .register:
-            taskAddition()
-            self.dismiss(animated: true, completion: nil)
-        //科目を編集する場合 .edit
-        case .edit:
-            //ここでClassListViewControllerから取ってきた情報を元の場所に戻したい。
-            taskEditing()
-            self.dismiss(animated: true, completion: nil)
+        let isTitileEmpty = classTitleTextField.text == "" ? true : false
+        switch isTitileEmpty {
+        case true:
+            let alert: UIAlertController = UIAlertController(title: "科目名が入力されていません", message: "", preferredStyle:  UIAlertController.Style.actionSheet)
+            let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler:{
+                (action: UIAlertAction!) -> Void in
+                print("OK")
+            })
+            alert.addAction(defaultAction)
+            present(alert, animated: true, completion: nil)
+            
+        case false:
+            switch TaskRegisterViewController.fromWhere {
+                //科目を追加する場合 .register
+            case .register:
+                
+                taskAddition()
+                self.dismiss(animated: true, completion: nil)
+                //科目を編集する場合 .edit
+            case .edit:
+                //ここでClassListViewControllerから取ってきた情報を元の場所に戻したい。
+                taskEditing()
+                self.dismiss(animated: true, completion: nil)
+            }
         }
-//        print(ClassListViewController.itemsForClassTableView)
     }
     
     
@@ -100,6 +113,15 @@ class TaskRegisterViewController: UIViewController {
         let dateComponents = generateDateComponents(arr: indexForButtons)
         let uuids = NotificationProcessing().createUUIDs()
         
+        if classTitleTextField.text == "" {
+            let alert: UIAlertController = UIAlertController(title: "科目名がありません", message: "科目名を入力してください", preferredStyle:  UIAlertController.Style.actionSheet)
+            let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler:{
+                  (action: UIAlertAction!) -> Void in
+                  print("OK")
+              })
+            alert.addAction(defaultAction)
+            present(alert, animated: true, completion: nil)
+        }
         if let classTitle = classTitleTextField.text {
             let appendedItem = registeredItem(classTitle: classTitle,
                                               arrForButtons: indexForButtons,
@@ -107,10 +129,10 @@ class TaskRegisterViewController: UIViewController {
                                               ToggledDates: AddNotificationViewController.toggledItem,
                                               uuidAndDate: NotificationProcessing().createDictForIdAndDates(id: uuids, date: dateComponents))
             ClassListViewController.itemsForClassTableView.append(appendedItem)
-            //通知をここで作成
-            NotificationProcessing().createNotification(item: appendedItem)
-            assesToggleItems(item: appendedItem, isToggled: appendedItem.ToggledDates.pub_Date_IsToggled, dictKey: "publish")
-            assesToggleItems(item: appendedItem, isToggled: appendedItem.ToggledDates.view_Date_IsToggled, dictKey: "view")
+        //通知をここで作成
+        NotificationProcessing().createNotification(item: appendedItem)
+        assesToggleItems(item: appendedItem, isToggled: appendedItem.ToggledDates.pub_Date_IsToggled, dictKey: "publish")
+        assesToggleItems(item: appendedItem, isToggled: appendedItem.ToggledDates.view_Date_IsToggled, dictKey: "view")
         }
         UNUserNotificationCenter.current().getPendingNotificationRequests(completionHandler: {
             print("pending request: \($0)")
