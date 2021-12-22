@@ -84,41 +84,11 @@
                                                                 <constraint firstAttribute="height" constant="17" id="d2w-L4-5d8"/>
                                                             </constraints>
                                                         </stackView>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="HdM-x3-3w8">
-                                                            <rect key="frame" x="16" y="81" width="358" height="24"/>
-                                                            <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="通知:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="By7-AO-VUy">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="34" height="24"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="width" constant="34" id="HUh-LQ-Bgb"/>
-                                                                    </constraints>
-                                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
-                                                                    <nil key="textColor"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="テスト通知" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yus-TV-F22">
-                                                                    <rect key="frame" x="40" y="0.0" width="318" height="24"/>
-                                                                    <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                    <nil key="textColor"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                    <userDefinedRuntimeAttributes>
-                                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                                            <integer key="value" value="5"/>
-                                                                        </userDefinedRuntimeAttribute>
-                                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                                                    </userDefinedRuntimeAttributes>
-                                                                </label>
-                                                            </subviews>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="24" id="weG-Zz-bgw"/>
-                                                            </constraints>
-                                                        </stackView>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aBP-qs-5cf">
-                                                            <rect key="frame" x="12" y="117" width="366" height="72"/>
+                                                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aBP-qs-5cf">
+                                                            <rect key="frame" x="12" y="81" width="366" height="115"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WPV-PW-Mrg">
-                                                                    <rect key="frame" x="8" y="8" width="350" height="56"/>
+                                                                    <rect key="frame" x="8" y="8" width="350" height="98"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -130,7 +100,7 @@
                                                                 <constraint firstAttribute="trailing" secondItem="WPV-PW-Mrg" secondAttribute="trailing" constant="8" id="JYR-HI-1a6"/>
                                                                 <constraint firstItem="WPV-PW-Mrg" firstAttribute="leading" secondItem="aBP-qs-5cf" secondAttribute="leading" constant="8" id="VUB-HG-aal"/>
                                                                 <constraint firstItem="WPV-PW-Mrg" firstAttribute="top" secondItem="aBP-qs-5cf" secondAttribute="top" constant="8" id="ZE3-LS-yNL"/>
-                                                                <constraint firstAttribute="height" constant="72" id="q8a-XZ-Fmr"/>
+                                                                <constraint firstAttribute="height" constant="114" id="q8a-XZ-Fmr"/>
                                                             </constraints>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -144,13 +114,10 @@
                                                         <constraint firstItem="34F-zc-ieW" firstAttribute="top" secondItem="lgd-qJ-ogN" secondAttribute="bottom" constant="6" id="0M2-dg-LYQ"/>
                                                         <constraint firstItem="lgd-qJ-ogN" firstAttribute="top" secondItem="MUf-Sk-nML" secondAttribute="top" constant="6" id="1xk-Vm-8Xg"/>
                                                         <constraint firstAttribute="trailing" secondItem="lgd-qJ-ogN" secondAttribute="trailing" constant="12" id="6zs-dw-TKk"/>
-                                                        <constraint firstItem="aBP-qs-5cf" firstAttribute="top" secondItem="HdM-x3-3w8" secondAttribute="bottom" constant="12" id="BpP-gV-JeP"/>
                                                         <constraint firstAttribute="trailing" secondItem="aBP-qs-5cf" secondAttribute="trailing" constant="12" id="EJq-FB-lHG"/>
-                                                        <constraint firstItem="HdM-x3-3w8" firstAttribute="top" secondItem="34F-zc-ieW" secondAttribute="bottom" constant="12" id="O3h-Ds-MA0"/>
-                                                        <constraint firstItem="HdM-x3-3w8" firstAttribute="leading" secondItem="MUf-Sk-nML" secondAttribute="leading" constant="16" id="Zy2-wp-yBy"/>
+                                                        <constraint firstItem="aBP-qs-5cf" firstAttribute="top" secondItem="34F-zc-ieW" secondAttribute="bottom" constant="12" id="Oau-Du-xkM"/>
                                                         <constraint firstItem="aBP-qs-5cf" firstAttribute="leading" secondItem="MUf-Sk-nML" secondAttribute="leading" constant="12" id="riD-w3-VeX"/>
                                                         <constraint firstItem="lgd-qJ-ogN" firstAttribute="leading" secondItem="MUf-Sk-nML" secondAttribute="leading" constant="16" id="tkO-cL-a7j"/>
-                                                        <constraint firstAttribute="trailing" secondItem="HdM-x3-3w8" secondAttribute="trailing" constant="16" id="xmb-M6-3Zl"/>
                                                         <constraint firstItem="34F-zc-ieW" firstAttribute="leading" secondItem="MUf-Sk-nML" secondAttribute="leading" constant="16" id="y7U-PD-wje"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
