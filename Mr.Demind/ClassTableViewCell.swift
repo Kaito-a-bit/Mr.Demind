@@ -21,8 +21,8 @@ class ClassTableViewCell: UITableViewCell {
         viewDateLabel.text = "視聴期限: \(DayOfTheWeek.allCases[model.arrForButtons[1]].rawValue)"
         assignDateLabel.text = "課題期限: \(DayOfTheWeek.allCases[model.arrForButtons[2]].rawValue)"
         
-        pubDateLabel.backgroundColor = model.ToggledDates.pub_Date_IsToggled ? UIColor.darkGray : UIColor(red: 206, green: 218, blue: 223, alpha: 0)
-        viewDateLabel.backgroundColor = model.ToggledDates.view_Date_IsToggled ? UIColor.darkGray : UIColor(red: 206, green: 218, blue: 223, alpha: 0)
+        pubDateLabel.textColor = model.ToggledDates.pub_Date_IsToggled ? UIColor.black : UIColor.darkGray
+        viewDateLabel.textColor = model.ToggledDates.pub_Date_IsToggled ? UIColor.black : UIColor.darkGray
         if let description = model.description {
             descriptionLabel.text = description.isEmpty ? "No description" : description
         }
