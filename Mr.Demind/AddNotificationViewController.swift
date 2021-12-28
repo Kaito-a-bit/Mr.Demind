@@ -18,7 +18,7 @@ class AddNotificationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        presentationController?.delegate = self
+//        presentationController?.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -48,8 +48,8 @@ class AddNotificationViewController: UIViewController {
     }
 }
 
-extension AddNotificationViewController: UIAdaptivePresentationControllerDelegate {
-    func presentationControllerShouldDismiss(_ presentationController: UIPresentationController) -> Bool {
-        false
-    }
-}
+//extension AddNotificationViewController: UIAdaptivePresentationControllerDelegate {
+//    func presentationControllerShouldDismiss(_ presentationController: UIPresentationController) -> Bool {
+//        false
+//    }
+//}
