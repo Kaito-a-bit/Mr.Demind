@@ -431,12 +431,36 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H4z-ci-KAG">
+                                <rect key="frame" x="48" y="802" width="318" height="48"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="ZiN-uW-iH6"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Done">
+                                    <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="17"/>
+                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="24"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="dismissButton:" destination="T9X-kS-dz5" eventType="touchUpInside" id="9vQ-78-IrA"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="xv3-7p-9pS"/>
                         <color key="backgroundColor" red="0.80784313730000001" green="0.85490196078431369" blue="0.87450980392156863" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="H4z-ci-KAG" firstAttribute="leading" secondItem="xv3-7p-9pS" secondAttribute="leading" constant="48" id="DAZ-CU-ATV"/>
                             <constraint firstItem="URo-uA-mIN" firstAttribute="leading" secondItem="xv3-7p-9pS" secondAttribute="leading" constant="48" id="Noi-lr-vQ1"/>
                             <constraint firstItem="URo-uA-mIN" firstAttribute="top" secondItem="xv3-7p-9pS" secondAttribute="top" constant="36" id="Pca-Z3-RBd"/>
+                            <constraint firstItem="xv3-7p-9pS" firstAttribute="bottom" secondItem="H4z-ci-KAG" secondAttribute="bottom" constant="12" id="Yx2-GA-qce"/>
+                            <constraint firstItem="xv3-7p-9pS" firstAttribute="trailing" secondItem="H4z-ci-KAG" secondAttribute="trailing" constant="48" id="l55-tg-XNy"/>
                             <constraint firstItem="xv3-7p-9pS" firstAttribute="trailing" secondItem="URo-uA-mIN" secondAttribute="trailing" constant="48" id="pmJ-OG-8fa"/>
                         </constraints>
                     </view>

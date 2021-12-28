@@ -22,6 +22,7 @@ class AddNotificationViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        self.isModalInPresentation = true
         print("called")
         switch TaskRegisterViewController.fromWhere {
         case .register:
@@ -33,6 +34,9 @@ class AddNotificationViewController: UIViewController {
         }
     }
     
+    @IBAction func dismissButton(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
     //公開日のトグル
     @IBAction func SwitchPubDateNotes(_ sender: Any) {
         AddNotificationViewController.toggledItem.pub_Date_IsToggled.toggle()
