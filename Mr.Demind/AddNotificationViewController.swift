@@ -7,6 +7,7 @@
 
 import UIKit
 
+//通知トグル画面
 class AddNotificationViewController: UIViewController {
     
     @IBOutlet weak var switchPubDateNotes: UISwitch!
@@ -17,9 +18,11 @@ class AddNotificationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        presentationController?.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        print("called")
         switch TaskRegisterViewController.fromWhere {
         case .register:
             switchPubDateNotes.isOn = true
@@ -38,5 +41,11 @@ class AddNotificationViewController: UIViewController {
     //視聴期限のトグル
     @IBAction func SwitchViewDateNotes(_ sender: Any) {
         AddNotificationViewController.toggledItem.view_Date_IsToggled.toggle()
+    }
+}
+
+extension AddNotificationViewController: UIAdaptivePresentationControllerDelegate {
+    func presentationControllerShouldDismiss(_ presentationController: UIPresentationController) -> Bool {
+        false
     }
 }
