@@ -14,7 +14,6 @@ class AddNotificationViewController: UIViewController {
     @IBOutlet weak var switchViewDateNotes: UISwitch!
     static var toggledItem: ToggledDates! = ToggledDates(pub_Date_IsToggled: true,
                                                          view_Date_IsToggled: true)
-//    var inheritedItem = TaskRegisterViewController.inheritedItem
     
     override func viewDidLoad() {
         super.viewDidLoad()
