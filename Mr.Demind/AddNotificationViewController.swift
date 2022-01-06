@@ -14,7 +14,7 @@ class AddNotificationViewController: UIViewController {
     @IBOutlet weak var switchViewDateNotes: UISwitch!
     static var toggledItem: ToggledDates! = ToggledDates(pub_Date_IsToggled: true,
                                                          view_Date_IsToggled: true)
-    var inheritedItem = TaskRegisterViewController.inheritedItem
+//    var inheritedItem = TaskRegisterViewController.inheritedItem
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +28,8 @@ class AddNotificationViewController: UIViewController {
             switchPubDateNotes.isOn = true
             switchViewDateNotes.isOn = true
         case .edit:
+            //値引き渡し → 登録ではなく編集だった時に上のtoggledItemを変更しないといけない
+            AddNotificationViewController.toggledItem = TaskRegisterViewController.inheritedItem.ToggledDates
             switchPubDateNotes.isOn = TaskRegisterViewController.inheritedItem.ToggledDates.pub_Date_IsToggled
             switchViewDateNotes.isOn = TaskRegisterViewController.inheritedItem.ToggledDates.view_Date_IsToggled
         }
