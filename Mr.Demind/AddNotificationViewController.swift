@@ -18,7 +18,6 @@ class AddNotificationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        presentationController?.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -47,9 +46,3 @@ class AddNotificationViewController: UIViewController {
         AddNotificationViewController.toggledItem.view_Date_IsToggled.toggle()
     }
 }
-
-//extension AddNotificationViewController: UIAdaptivePresentationControllerDelegate {
-//    func presentationControllerShouldDismiss(_ presentationController: UIPresentationController) -> Bool {
-//        false
-//    }
-//}
