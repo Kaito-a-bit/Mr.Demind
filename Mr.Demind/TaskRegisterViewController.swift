@@ -192,6 +192,7 @@ class TaskRegisterViewController: UIViewController {
         assignmentDeadlineButton.setAttributedTitle(NSAttributedString(string: "課題期限:\(DayOfTheWeek.allCases[indexForButtons[2]].rawValue)", attributes: attributes), for: .normal)
         descriptionTextView.text.removeAll()
         AddNotificationViewController.toggledItem.pub_Date_IsToggled = true
+        // :TODO
     }
 }
 

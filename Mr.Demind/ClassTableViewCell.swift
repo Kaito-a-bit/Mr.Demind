@@ -17,9 +17,12 @@ class ClassTableViewCell: UITableViewCell {
     
     func configure(from model: registeredItem) {
         classTitle.text = model.classTitle
+        pubDateLabel.textColor = model.ToggledDates.pub_Date_IsToggled ? UIColor.black : UIColor.darkGray
+        viewDateLabel.textColor = model.ToggledDates.view_Date_IsToggled ? UIColor.black : UIColor.darkGray
         pubDateLabel.text = "公開日: \(DayOfTheWeek.allCases[model.arrForButtons[0]].rawValue)"
         viewDateLabel.text = "視聴期限: \(DayOfTheWeek.allCases[model.arrForButtons[1]].rawValue)"
         assignDateLabel.text = "課題期限: \(DayOfTheWeek.allCases[model.arrForButtons[2]].rawValue)"
+        
         if let description = model.description {
             descriptionLabel.text = description.isEmpty ? "No description" : description
         }
